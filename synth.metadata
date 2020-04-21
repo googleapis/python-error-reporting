@@ -1,26 +1,32 @@
 {
-  "updateTime": "2020-02-06T11:35:02.101302Z",
   "sources": [
     {
       "generator": {
         "name": "artman",
-        "version": "0.44.4",
-        "dockerImage": "googleapis/artman@sha256:19e945954fc960a4bdfee6cb34695898ab21a8cf0bac063ee39b91f00a1faec8"
+        "version": "2.0.0",
+        "dockerImage": "googleapis/artman@sha256:b3b47805231a305d0f40c4bf069df20f6a2635574e6d4259fac651d3f9f6e098"
+      }
+    },
+    {
+      "git": {
+        "name": ".",
+        "remote": "https://github.com/googleapis/python-error-reporting.git",
+        "sha": "98faaf7433858a03bb92842241b91b63224b1657"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "45d2a569ab526a1fad3720f95eefb1c7330eaada",
-        "internalRef": "293515675"
+        "sha": "42ee97c1b93a0e3759bbba3013da309f670a90ab",
+        "internalRef": "307114445"
       }
     },
     {
-      "template": {
-        "name": "python_split_library",
-        "origin": "synthtool.gcp",
-        "version": "2019.10.17"
+      "git": {
+        "name": "synthtool",
+        "remote": "https://github.com/googleapis/synthtool.git",
+        "sha": "f5e4c17dc78a966dbf29961dd01f9bbd63e20a04"
       }
     }
   ],
