@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2020 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -120,13 +120,6 @@ class ReportErrorsServiceGrpcTransport(object):
         """Return the gRPC stub for :meth:`ReportErrorsServiceClient.report_error_event`.
 
         Report an individual error event.
-
-        This endpoint accepts **either** an OAuth token, **or** an `API
-        key <https://support.google.com/cloud/answer/6158862>`__ for
-        authentication. To use an API key, append it to the URL as the value of
-        a ``key`` parameter. For example:
-
-        ``POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456``
 
         Returns:
             Callable: A callable which accepts the appropriate
