@@ -2,7 +2,7 @@
 import grpc
 
 from google.cloud.errorreporting_v1beta1.proto import (
-    error_stats_service_pb2 as google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2,
+    error_stats_service_pb2 as google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2,
 )
 
 
@@ -19,18 +19,18 @@ class ErrorStatsServiceStub(object):
     """
         self.ListGroupStats = channel.unary_unary(
             "/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/ListGroupStats",
-            request_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsRequest.SerializeToString,
-            response_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsResponse.FromString,
+            request_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsRequest.SerializeToString,
+            response_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsResponse.FromString,
         )
         self.ListEvents = channel.unary_unary(
             "/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/ListEvents",
-            request_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsRequest.SerializeToString,
-            response_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsResponse.FromString,
+            request_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsRequest.SerializeToString,
+            response_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsResponse.FromString,
         )
         self.DeleteEvents = channel.unary_unary(
             "/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/DeleteEvents",
-            request_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsRequest.SerializeToString,
-            response_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsResponse.FromString,
+            request_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsRequest.SerializeToString,
+            response_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsResponse.FromString,
         )
 
 
@@ -65,18 +65,18 @@ def add_ErrorStatsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
         "ListGroupStats": grpc.unary_unary_rpc_method_handler(
             servicer.ListGroupStats,
-            request_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsRequest.FromString,
-            response_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsResponse.SerializeToString,
+            request_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsRequest.FromString,
+            response_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListGroupStatsResponse.SerializeToString,
         ),
         "ListEvents": grpc.unary_unary_rpc_method_handler(
             servicer.ListEvents,
-            request_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsRequest.FromString,
-            response_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsResponse.SerializeToString,
+            request_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsRequest.FromString,
+            response_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.ListEventsResponse.SerializeToString,
         ),
         "DeleteEvents": grpc.unary_unary_rpc_method_handler(
             servicer.DeleteEvents,
-            request_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsRequest.FromString,
-            response_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsResponse.SerializeToString,
+            request_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsRequest.FromString,
+            response_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__stats__service__pb2.DeleteEventsResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
