@@ -1151,8 +1151,6 @@ ListGroupStatsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTGROUPSTATSREQUEST,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
         "__doc__": """Specifies a set of ``ErrorGroupStats`` to return.
-  
-  
   Attributes:
       project_name:
           Required. The resource name of the Google Cloud Platform
@@ -1204,8 +1202,6 @@ ListGroupStatsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTGROUPSTATSRESPONSE,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
         "__doc__": """Contains a set of requested error group stats.
-  
-  
   Attributes:
       error_group_stats:
           The error group stats which match the given request.
@@ -1231,10 +1227,8 @@ ErrorGroupStats = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ERRORGROUPSTATS,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
-        "__doc__": """Data extracted for a specific group based on certain
-  filter criteria, such as a given time period and/or service filter.
-  
-  
+        "__doc__": """Data extracted for a specific group based on certain filter criteria,
+  such as a given time period and/or service filter.
   Attributes:
       group:
           Group data that is independent of the filter criteria.
@@ -1293,10 +1287,8 @@ TimedCount = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TIMEDCOUNT,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
-        "__doc__": """The number of errors in a given time period. All numbers
-  are approximate since the error events are sampled before counting them.
-  
-  
+        "__doc__": """The number of errors in a given time period. All numbers are
+  approximate since the error events are sampled before counting them.
   Attributes:
       count:
           Approximate number of occurrences in the given time period.
@@ -1317,8 +1309,6 @@ ListEventsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTEVENTSREQUEST,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
         "__doc__": """Specifies a set of error events to return.
-  
-  
   Attributes:
       project_name:
           Required. The resource name of the Google Cloud Platform
@@ -1355,8 +1345,6 @@ ListEventsResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _LISTEVENTSRESPONSE,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
         "__doc__": """Contains a set of requested error events.
-  
-  
   Attributes:
       error_events:
           The error events which match the given request.
@@ -1379,10 +1367,8 @@ QueryTimeRange = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _QUERYTIMERANGE,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
-        "__doc__": """Requests might be rejected or the resulting timed count
-  durations might be adjusted for lower durations.
-  
-  
+        "__doc__": """Requests might be rejected or the resulting timed count durations
+  might be adjusted for lower durations.
   Attributes:
       period:
           Restricts the query to the specified time range.
@@ -1398,12 +1384,10 @@ ServiceContextFilter = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SERVICECONTEXTFILTER,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
-        "__doc__": """Specifies criteria for filtering a subset of service
-  contexts. The fields in the filter correspond to the fields in
-  ``ServiceContext``. Only exact, case-sensitive matches are supported. If
-  a field is unset or empty, it matches arbitrary values.
-  
-  
+        "__doc__": """Specifies criteria for filtering a subset of service contexts. The
+  fields in the filter correspond to the fields in ``ServiceContext``.
+  Only exact, case-sensitive matches are supported. If a field is unset
+  or empty, it matches arbitrary values.
   Attributes:
       service:
           Optional. The exact value to match against
@@ -1430,8 +1414,6 @@ DeleteEventsRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DELETEEVENTSREQUEST,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
         "__doc__": """Deletes all events in the project.
-  
-  
   Attributes:
       project_name:
           Required. The resource name of the Google Cloud Platform
@@ -1451,9 +1433,7 @@ DeleteEventsResponse = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _DELETEEVENTSRESPONSE,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_stats_service_pb2",
-        "__doc__": """Response message for deleting error events.
-  
-  """,
+        "__doc__": """Response message for deleting error events.""",
         # @@protoc_insertion_point(class_scope:google.devtools.clouderrorreporting.v1beta1.DeleteEventsResponse)
     },
 )

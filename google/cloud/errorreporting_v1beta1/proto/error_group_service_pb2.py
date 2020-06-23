@@ -130,8 +130,6 @@ GetGroupRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _GETGROUPREQUEST,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_group_service_pb2",
         "__doc__": """A request to return an individual group.
-  
-  
   Attributes:
       group_name:
           Required. The group resource name. Written as
@@ -150,10 +148,7 @@ UpdateGroupRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _UPDATEGROUPREQUEST,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.error_group_service_pb2",
-        "__doc__": """A request to replace the existing data for the given
-  group.
-  
-  
+        "__doc__": """A request to replace the existing data for the given group.
   Attributes:
       group:
           Required. The group which replaces the resource on the server.
