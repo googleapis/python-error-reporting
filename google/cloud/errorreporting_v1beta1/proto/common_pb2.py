@@ -659,8 +659,7 @@ ErrorEvent = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ERROREVENT,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.common_pb2",
-        "__doc__": """An error event which is returned by the Error Reporting
-  system.
+        "__doc__": """An error event which is returned by the Error Reporting system.
   
   
   Attributes:
