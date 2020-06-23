@@ -56,7 +56,7 @@ class ErrorGroupServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                "The `channel` and `credentials` arguments are mutually " "exclusive."
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -77,7 +77,7 @@ class ErrorGroupServiceGrpcTransport(object):
         self._stubs = {
             "error_group_service_stub": error_group_service_pb2_grpc.ErrorGroupServiceStub(
                 channel
-            )
+            ),
         }
 
     @classmethod

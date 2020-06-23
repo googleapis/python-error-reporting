@@ -1016,11 +1016,11 @@ _QUERYTIMERANGE = _descriptor.Descriptor(
             serialized_options=None,
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_QUERYTIMERANGE_PERIOD],
+    enum_types=[_QUERYTIMERANGE_PERIOD,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -1136,7 +1136,7 @@ _DELETEEVENTSREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

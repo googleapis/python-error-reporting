@@ -48,7 +48,7 @@ from google.protobuf import timestamp_pb2
 
 
 _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
-    "google-cloud-devtools-clouderrorreporting"
+    "google-cloud-devtools-clouderrorreporting",
 ).version
 
 
@@ -86,7 +86,7 @@ class ReportErrorsServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project
+            "projects/{project}", project=project,
         )
 
     def __init__(
@@ -176,12 +176,12 @@ class ReportErrorsServiceClient(object):
                 self.transport = transport
         else:
             self.transport = report_errors_service_grpc_transport.ReportErrorsServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -192,7 +192,7 @@ class ReportErrorsServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -272,7 +272,7 @@ class ReportErrorsServiceClient(object):
             )
 
         request = report_errors_service_pb2.ReportErrorEventRequest(
-            project_name=project_name, event=event
+            project_name=project_name, event=event,
         )
         if metadata is None:
             metadata = []

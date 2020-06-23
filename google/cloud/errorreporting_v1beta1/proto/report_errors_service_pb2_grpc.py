@@ -49,7 +49,7 @@ def add_ReportErrorsServiceServicer_to_server(servicer, server):
             servicer.ReportErrorEvent,
             request_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_report__errors__service__pb2.ReportErrorEventRequest.FromString,
             response_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_report__errors__service__pb2.ReportErrorEventResponse.SerializeToString,
-        )
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
         "google.devtools.clouderrorreporting.v1beta1.ReportErrorsService",

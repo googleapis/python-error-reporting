@@ -353,7 +353,7 @@ _REPORTERRORSSERVICE = _descriptor.ServiceDescriptor(
             output_type=_REPORTERROREVENTRESPONSE,
             serialized_options=b'\202\323\344\223\0029"0/v1beta1/{project_name=projects/*}/events:report:\005event\332A\022project_name,event',
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
 )
 _sym_db.RegisterServiceDescriptor(_REPORTERRORSSERVICE)
