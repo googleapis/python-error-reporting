@@ -26,6 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.devtools.clouderrorreporting.v1beta1",
     syntax="proto3",
     serialized_options=b"\n/com.google.devtools.clouderrorreporting.v1beta1B\026ErrorGroupServiceProtoP\001Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\370\001\001\252\002#Google.Cloud.ErrorReporting.V1Beta1\312\002#Google\\Cloud\\ErrorReporting\\V1beta1",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\nQgoogle/cloud/devtools/clouderrorreporting_v1beta1/proto/error_group_service.proto\x12+google.devtools.clouderrorreporting.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x44google/cloud/devtools/clouderrorreporting_v1beta1/proto/common.proto"\\\n\x0fGetGroupRequest\x12I\n\ngroup_name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-clouderrorreporting.googleapis.com/ErrorGroup"a\n\x12UpdateGroupRequest\x12K\n\x05group\x18\x01 \x01(\x0b\x32\x37.google.devtools.clouderrorreporting.v1beta1.ErrorGroupB\x03\xe0\x41\x02\x32\xfb\x03\n\x11\x45rrorGroupService\x12\xc1\x01\n\x08GetGroup\x12<.google.devtools.clouderrorreporting.v1beta1.GetGroupRequest\x1a\x37.google.devtools.clouderrorreporting.v1beta1.ErrorGroup">\x82\xd3\xe4\x93\x02+\x12)/v1beta1/{group_name=projects/*/groups/*}\xda\x41\ngroup_name\x12\xc9\x01\n\x0bUpdateGroup\x12?.google.devtools.clouderrorreporting.v1beta1.UpdateGroupRequest\x1a\x37.google.devtools.clouderrorreporting.v1beta1.ErrorGroup"@\x82\xd3\xe4\x93\x02\x32\x1a)/v1beta1/{group.name=projects/*/groups/*}:\x05group\xda\x41\x05group\x1aV\xca\x41"clouderrorreporting.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xfa\x01\n/com.google.devtools.clouderrorreporting.v1beta1B\x16\x45rrorGroupServiceProtoP\x01Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\xf8\x01\x01\xaa\x02#Google.Cloud.ErrorReporting.V1Beta1\xca\x02#Google\\Cloud\\ErrorReporting\\V1beta1b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -43,6 +44,7 @@ _GETGROUPREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="group_name",
@@ -61,6 +63,7 @@ _GETGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A/\n-clouderrorreporting.googleapis.com/ErrorGroup",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -82,6 +85,7 @@ _UPDATEGROUPREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="group",
@@ -100,6 +104,7 @@ _UPDATEGROUPREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -169,6 +174,7 @@ _ERRORGROUPSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b'\312A"clouderrorreporting.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
+    create_key=_descriptor._internal_create_key,
     serialized_start=509,
     serialized_end=1016,
     methods=[
@@ -180,6 +186,7 @@ _ERRORGROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETGROUPREQUEST,
             output_type=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2._ERRORGROUP,
             serialized_options=b"\202\323\344\223\002+\022)/v1beta1/{group_name=projects/*/groups/*}\332A\ngroup_name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateGroup",
@@ -189,6 +196,7 @@ _ERRORGROUPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEGROUPREQUEST,
             output_type=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2._ERRORGROUP,
             serialized_options=b"\202\323\344\223\0022\032)/v1beta1/{group.name=projects/*/groups/*}:\005group\332A\005group",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )

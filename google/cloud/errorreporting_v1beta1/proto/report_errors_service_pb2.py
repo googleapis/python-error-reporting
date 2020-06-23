@@ -27,6 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.devtools.clouderrorreporting.v1beta1",
     syntax="proto3",
     serialized_options=b"\n/com.google.devtools.clouderrorreporting.v1beta1B\030ReportErrorsServiceProtoP\001Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\370\001\001\252\002#Google.Cloud.ErrorReporting.V1Beta1\312\002#Google\\Cloud\\ErrorReporting\\V1beta1",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\nSgoogle/cloud/devtools/clouderrorreporting_v1beta1/proto/report_errors_service.proto\x12+google.devtools.clouderrorreporting.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x44google/cloud/devtools/clouderrorreporting_v1beta1/proto/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\xb9\x01\n\x17ReportErrorEventRequest\x12I\n\x0cproject_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12S\n\x05\x65vent\x18\x02 \x01(\x0b\x32?.google.devtools.clouderrorreporting.v1beta1.ReportedErrorEventB\x03\xe0\x41\x02"\x1a\n\x18ReportErrorEventResponse"\x8b\x02\n\x12ReportedErrorEvent\x12\x33\n\nevent_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12Y\n\x0fservice_context\x18\x02 \x01(\x0b\x32;.google.devtools.clouderrorreporting.v1beta1.ServiceContextB\x03\xe0\x41\x02\x12\x14\n\x07message\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12O\n\x07\x63ontext\x18\x04 \x01(\x0b\x32\x39.google.devtools.clouderrorreporting.v1beta1.ErrorContextB\x03\xe0\x41\x01\x32\xe5\x02\n\x13ReportErrorsService\x12\xf5\x01\n\x10ReportErrorEvent\x12\x44.google.devtools.clouderrorreporting.v1beta1.ReportErrorEventRequest\x1a\x45.google.devtools.clouderrorreporting.v1beta1.ReportErrorEventResponse"T\x82\xd3\xe4\x93\x02\x39"0/v1beta1/{project_name=projects/*}/events:report:\x05\x65vent\xda\x41\x12project_name,event\x1aV\xca\x41"clouderrorreporting.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xfc\x01\n/com.google.devtools.clouderrorreporting.v1beta1B\x18ReportErrorsServiceProtoP\x01Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\xf8\x01\x01\xaa\x02#Google.Cloud.ErrorReporting.V1Beta1\xca\x02#Google\\Cloud\\ErrorReporting\\V1beta1b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -45,6 +46,7 @@ _REPORTERROREVENTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="project_name",
@@ -63,6 +65,7 @@ _REPORTERROREVENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="event",
@@ -81,6 +84,7 @@ _REPORTERROREVENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -102,6 +106,7 @@ _REPORTERROREVENTRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -122,6 +127,7 @@ _REPORTEDERROREVENT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="event_time",
@@ -140,6 +146,7 @@ _REPORTEDERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_context",
@@ -158,6 +165,7 @@ _REPORTEDERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="message",
@@ -176,6 +184,7 @@ _REPORTEDERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="context",
@@ -194,6 +203,7 @@ _REPORTEDERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -328,6 +338,7 @@ _REPORTERRORSSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b'\312A"clouderrorreporting.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
+    create_key=_descriptor._internal_create_key,
     serialized_start=837,
     serialized_end=1194,
     methods=[
@@ -339,6 +350,7 @@ _REPORTERRORSSERVICE = _descriptor.ServiceDescriptor(
             input_type=_REPORTERROREVENTREQUEST,
             output_type=_REPORTERROREVENTRESPONSE,
             serialized_options=b'\202\323\344\223\0029"0/v1beta1/{project_name=projects/*}/events:report:\005event\332A\022project_name,event',
+            create_key=_descriptor._internal_create_key,
         )
     ],
 )

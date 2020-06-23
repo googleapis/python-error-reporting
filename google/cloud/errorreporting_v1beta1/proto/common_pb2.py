@@ -22,6 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.devtools.clouderrorreporting.v1beta1",
     syntax="proto3",
     serialized_options=b"\n/com.google.devtools.clouderrorreporting.v1beta1B\013CommonProtoP\001Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\370\001\001\252\002#Google.Cloud.ErrorReporting.V1Beta1\312\002#Google\\Cloud\\ErrorReporting\\V1beta1",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\nDgoogle/cloud/devtools/clouderrorreporting_v1beta1/proto/common.proto\x12+google.devtools.clouderrorreporting.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\xd8\x01\n\nErrorGroup\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08group_id\x18\x02 \x01(\t\x12S\n\x0ftracking_issues\x18\x03 \x03(\x0b\x32:.google.devtools.clouderrorreporting.v1beta1.TrackingIssue:U\xea\x41R\n-clouderrorreporting.googleapis.com/ErrorGroup\x12!projects/{project}/groups/{group}"\x1c\n\rTrackingIssue\x12\x0b\n\x03url\x18\x01 \x01(\t"\xef\x01\n\nErrorEvent\x12.\n\nevent_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12T\n\x0fservice_context\x18\x02 \x01(\x0b\x32;.google.devtools.clouderrorreporting.v1beta1.ServiceContext\x12\x0f\n\x07message\x18\x03 \x01(\t\x12J\n\x07\x63ontext\x18\x05 \x01(\x0b\x32\x39.google.devtools.clouderrorreporting.v1beta1.ErrorContext"I\n\x0eServiceContext\x12\x0f\n\x07service\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x12\x15\n\rresource_type\x18\x04 \x01(\t"\xc9\x01\n\x0c\x45rrorContext\x12U\n\x0chttp_request\x18\x01 \x01(\x0b\x32?.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext\x12\x0c\n\x04user\x18\x02 \x01(\t\x12T\n\x0freport_location\x18\x03 \x01(\x0b\x32;.google.devtools.clouderrorreporting.v1beta1.SourceLocation"\x88\x01\n\x12HttpRequestContext\x12\x0e\n\x06method\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\x12\x12\n\nuser_agent\x18\x03 \x01(\t\x12\x10\n\x08referrer\x18\x04 \x01(\t\x12\x1c\n\x14response_status_code\x18\x05 \x01(\x05\x12\x11\n\tremote_ip\x18\x06 \x01(\t"O\n\x0eSourceLocation\x12\x11\n\tfile_path\x18\x01 \x01(\t\x12\x13\n\x0bline_number\x18\x02 \x01(\x05\x12\x15\n\rfunction_name\x18\x04 \x01(\tB\xef\x01\n/com.google.devtools.clouderrorreporting.v1beta1B\x0b\x43ommonProtoP\x01Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\xf8\x01\x01\xaa\x02#Google.Cloud.ErrorReporting.V1Beta1\xca\x02#Google\\Cloud\\ErrorReporting\\V1beta1b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -37,6 +38,7 @@ _ERRORGROUP = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -55,6 +57,7 @@ _ERRORGROUP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="group_id",
@@ -73,6 +76,7 @@ _ERRORGROUP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="tracking_issues",
@@ -91,6 +95,7 @@ _ERRORGROUP = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -112,6 +117,7 @@ _TRACKINGISSUE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="url",
@@ -130,6 +136,7 @@ _TRACKINGISSUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -151,6 +158,7 @@ _ERROREVENT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="event_time",
@@ -169,6 +177,7 @@ _ERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_context",
@@ -187,6 +196,7 @@ _ERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="message",
@@ -205,6 +215,7 @@ _ERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="context",
@@ -223,6 +234,7 @@ _ERROREVENT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -244,6 +256,7 @@ _SERVICECONTEXT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="service",
@@ -262,6 +275,7 @@ _SERVICECONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="version",
@@ -280,6 +294,7 @@ _SERVICECONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resource_type",
@@ -298,6 +313,7 @@ _SERVICECONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -319,6 +335,7 @@ _ERRORCONTEXT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="http_request",
@@ -337,6 +354,7 @@ _ERRORCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="user",
@@ -355,6 +373,7 @@ _ERRORCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="report_location",
@@ -373,6 +392,7 @@ _ERRORCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -394,6 +414,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="method",
@@ -412,6 +433,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="url",
@@ -430,6 +452,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="user_agent",
@@ -448,6 +471,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="referrer",
@@ -466,6 +490,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="response_status_code",
@@ -484,6 +509,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="remote_ip",
@@ -502,6 +528,7 @@ _HTTPREQUESTCONTEXT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -523,6 +550,7 @@ _SOURCELOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="file_path",
@@ -541,6 +569,7 @@ _SOURCELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="line_number",
@@ -559,6 +588,7 @@ _SOURCELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="function_name",
@@ -577,6 +607,7 @@ _SOURCELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],

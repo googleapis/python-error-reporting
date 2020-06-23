@@ -29,6 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.devtools.clouderrorreporting.v1beta1",
     syntax="proto3",
     serialized_options=b"\n/com.google.devtools.clouderrorreporting.v1beta1B\026ErrorStatsServiceProtoP\001Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\370\001\001\252\002#Google.Cloud.ErrorReporting.V1Beta1\312\002#Google\\Cloud\\ErrorReporting\\V1beta1",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\nQgoogle/cloud/devtools/clouderrorreporting_v1beta1/proto/error_stats_service.proto\x12+google.devtools.clouderrorreporting.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x44google/cloud/devtools/clouderrorreporting_v1beta1/proto/common.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\x83\x05\n\x15ListGroupStatsRequest\x12I\n\x0cproject_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x15\n\x08group_id\x18\x02 \x03(\tB\x03\xe0\x41\x01\x12^\n\x0eservice_filter\x18\x03 \x01(\x0b\x32\x41.google.devtools.clouderrorreporting.v1beta1.ServiceContextFilterB\x03\xe0\x41\x01\x12T\n\ntime_range\x18\x05 \x01(\x0b\x32;.google.devtools.clouderrorreporting.v1beta1.QueryTimeRangeB\x03\xe0\x41\x01\x12<\n\x14timed_count_duration\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\x12X\n\talignment\x18\x07 \x01(\x0e\x32@.google.devtools.clouderrorreporting.v1beta1.TimedCountAlignmentB\x03\xe0\x41\x01\x12\x37\n\x0e\x61lignment_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12P\n\x05order\x18\t \x01(\x0e\x32<.google.devtools.clouderrorreporting.v1beta1.ErrorGroupOrderB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x0b \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x0c \x01(\tB\x03\xe0\x41\x01"\xc0\x01\n\x16ListGroupStatsResponse\x12W\n\x11\x65rror_group_stats\x18\x01 \x03(\x0b\x32<.google.devtools.clouderrorreporting.v1beta1.ErrorGroupStats\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x34\n\x10time_range_begin\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"\x86\x04\n\x0f\x45rrorGroupStats\x12\x46\n\x05group\x18\x01 \x01(\x0b\x32\x37.google.devtools.clouderrorreporting.v1beta1.ErrorGroup\x12\r\n\x05\x63ount\x18\x02 \x01(\x03\x12\x1c\n\x14\x61\x66\x66\x65\x63ted_users_count\x18\x03 \x01(\x03\x12M\n\x0ctimed_counts\x18\x04 \x03(\x0b\x32\x37.google.devtools.clouderrorreporting.v1beta1.TimedCount\x12\x33\n\x0f\x66irst_seen_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0elast_seen_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12V\n\x11\x61\x66\x66\x65\x63ted_services\x18\x07 \x03(\x0b\x32;.google.devtools.clouderrorreporting.v1beta1.ServiceContext\x12\x1d\n\x15num_affected_services\x18\x08 \x01(\x05\x12O\n\x0erepresentative\x18\t \x01(\x0b\x32\x37.google.devtools.clouderrorreporting.v1beta1.ErrorEvent"y\n\nTimedCount\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"\xdc\x02\n\x11ListEventsRequest\x12I\n\x0cproject_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x15\n\x08group_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12^\n\x0eservice_filter\x18\x03 \x01(\x0b\x32\x41.google.devtools.clouderrorreporting.v1beta1.ServiceContextFilterB\x03\xe0\x41\x01\x12T\n\ntime_range\x18\x04 \x01(\x0b\x32;.google.devtools.clouderrorreporting.v1beta1.QueryTimeRangeB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x06 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x07 \x01(\tB\x03\xe0\x41\x01"\xb2\x01\n\x12ListEventsResponse\x12M\n\x0c\x65rror_events\x18\x01 \x03(\x0b\x32\x37.google.devtools.clouderrorreporting.v1beta1.ErrorEvent\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x34\n\x10time_range_begin\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"\xe7\x01\n\x0eQueryTimeRange\x12R\n\x06period\x18\x01 \x01(\x0e\x32\x42.google.devtools.clouderrorreporting.v1beta1.QueryTimeRange.Period"\x80\x01\n\x06Period\x12\x16\n\x12PERIOD_UNSPECIFIED\x10\x00\x12\x11\n\rPERIOD_1_HOUR\x10\x01\x12\x12\n\x0ePERIOD_6_HOURS\x10\x02\x12\x10\n\x0cPERIOD_1_DAY\x10\x03\x12\x11\n\rPERIOD_1_WEEK\x10\x04\x12\x12\n\x0ePERIOD_30_DAYS\x10\x05"^\n\x14ServiceContextFilter\x12\x14\n\x07service\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x14\n\x07version\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rresource_type\x18\x04 \x01(\tB\x03\xe0\x41\x01"`\n\x13\x44\x65leteEventsRequest\x12I\n\x0cproject_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project"\x16\n\x14\x44\x65leteEventsResponse*u\n\x13TimedCountAlignment\x12%\n!ERROR_COUNT_ALIGNMENT_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x41LIGNMENT_EQUAL_ROUNDED\x10\x01\x12\x1a\n\x16\x41LIGNMENT_EQUAL_AT_END\x10\x02*}\n\x0f\x45rrorGroupOrder\x12\x1b\n\x17GROUP_ORDER_UNSPECIFIED\x10\x00\x12\x0e\n\nCOUNT_DESC\x10\x01\x12\x12\n\x0eLAST_SEEN_DESC\x10\x02\x12\x10\n\x0c\x43REATED_DESC\x10\x03\x12\x17\n\x13\x41\x46\x46\x45\x43TED_USERS_DESC\x10\x04\x32\x8b\x06\n\x11\x45rrorStatsService\x12\xea\x01\n\x0eListGroupStats\x12\x42.google.devtools.clouderrorreporting.v1beta1.ListGroupStatsRequest\x1a\x43.google.devtools.clouderrorreporting.v1beta1.ListGroupStatsResponse"O\x82\xd3\xe4\x93\x02/\x12-/v1beta1/{project_name=projects/*}/groupStats\xda\x41\x17project_name,time_range\x12\xd8\x01\n\nListEvents\x12>.google.devtools.clouderrorreporting.v1beta1.ListEventsRequest\x1a?.google.devtools.clouderrorreporting.v1beta1.ListEventsResponse"I\x82\xd3\xe4\x93\x02+\x12)/v1beta1/{project_name=projects/*}/events\xda\x41\x15project_name,group_id\x12\xd5\x01\n\x0c\x44\x65leteEvents\x12@.google.devtools.clouderrorreporting.v1beta1.DeleteEventsRequest\x1a\x41.google.devtools.clouderrorreporting.v1beta1.DeleteEventsResponse"@\x82\xd3\xe4\x93\x02+*)/v1beta1/{project_name=projects/*}/events\xda\x41\x0cproject_name\x1aV\xca\x41"clouderrorreporting.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xfa\x01\n/com.google.devtools.clouderrorreporting.v1beta1B\x16\x45rrorStatsServiceProtoP\x01Z^google.golang.org/genproto/googleapis/devtools/clouderrorreporting/v1beta1;clouderrorreporting\xf8\x01\x01\xaa\x02#Google.Cloud.ErrorReporting.V1Beta1\xca\x02#Google\\Cloud\\ErrorReporting\\V1beta1b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -46,6 +47,7 @@ _TIMEDCOUNTALIGNMENT = _descriptor.EnumDescriptor(
     full_name="google.devtools.clouderrorreporting.v1beta1.TimedCountAlignment",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="ERROR_COUNT_ALIGNMENT_UNSPECIFIED",
@@ -53,6 +55,7 @@ _TIMEDCOUNTALIGNMENT = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ALIGNMENT_EQUAL_ROUNDED",
@@ -60,6 +63,7 @@ _TIMEDCOUNTALIGNMENT = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ALIGNMENT_EQUAL_AT_END",
@@ -67,6 +71,7 @@ _TIMEDCOUNTALIGNMENT = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -82,6 +87,7 @@ _ERRORGROUPORDER = _descriptor.EnumDescriptor(
     full_name="google.devtools.clouderrorreporting.v1beta1.ErrorGroupOrder",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="GROUP_ORDER_UNSPECIFIED",
@@ -89,15 +95,31 @@ _ERRORGROUPORDER = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="COUNT_DESC", index=1, number=1, serialized_options=None, type=None
+            name="COUNT_DESC",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LAST_SEEN_DESC", index=2, number=2, serialized_options=None, type=None
+            name="LAST_SEEN_DESC",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CREATED_DESC", index=3, number=3, serialized_options=None, type=None
+            name="CREATED_DESC",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="AFFECTED_USERS_DESC",
@@ -105,6 +127,7 @@ _ERRORGROUPORDER = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -130,6 +153,7 @@ _QUERYTIMERANGE_PERIOD = _descriptor.EnumDescriptor(
     full_name="google.devtools.clouderrorreporting.v1beta1.QueryTimeRange.Period",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="PERIOD_UNSPECIFIED",
@@ -137,21 +161,47 @@ _QUERYTIMERANGE_PERIOD = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PERIOD_1_HOUR", index=1, number=1, serialized_options=None, type=None
+            name="PERIOD_1_HOUR",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PERIOD_6_HOURS", index=2, number=2, serialized_options=None, type=None
+            name="PERIOD_6_HOURS",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PERIOD_1_DAY", index=3, number=3, serialized_options=None, type=None
+            name="PERIOD_1_DAY",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PERIOD_1_WEEK", index=4, number=4, serialized_options=None, type=None
+            name="PERIOD_1_WEEK",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PERIOD_30_DAYS", index=5, number=5, serialized_options=None, type=None
+            name="PERIOD_30_DAYS",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -168,6 +218,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="project_name",
@@ -186,6 +237,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="group_id",
@@ -204,6 +256,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_filter",
@@ -222,6 +275,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_range",
@@ -240,6 +294,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="timed_count_duration",
@@ -258,6 +313,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="alignment",
@@ -276,6 +332,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="alignment_time",
@@ -294,6 +351,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order",
@@ -312,6 +370,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -330,6 +389,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -348,6 +408,7 @@ _LISTGROUPSTATSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -369,6 +430,7 @@ _LISTGROUPSTATSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="error_group_stats",
@@ -387,6 +449,7 @@ _LISTGROUPSTATSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -405,6 +468,7 @@ _LISTGROUPSTATSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_range_begin",
@@ -423,6 +487,7 @@ _LISTGROUPSTATSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -444,6 +509,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="group",
@@ -462,6 +528,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="count",
@@ -480,6 +547,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="affected_users_count",
@@ -498,6 +566,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="timed_counts",
@@ -516,6 +585,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="first_seen_time",
@@ -534,6 +604,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="last_seen_time",
@@ -552,6 +623,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="affected_services",
@@ -570,6 +642,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="num_affected_services",
@@ -588,6 +661,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="representative",
@@ -606,6 +680,7 @@ _ERRORGROUPSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -627,6 +702,7 @@ _TIMEDCOUNT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="count",
@@ -645,6 +721,7 @@ _TIMEDCOUNT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="start_time",
@@ -663,6 +740,7 @@ _TIMEDCOUNT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_time",
@@ -681,6 +759,7 @@ _TIMEDCOUNT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -702,6 +781,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="project_name",
@@ -720,6 +800,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="group_id",
@@ -738,6 +819,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="service_filter",
@@ -756,6 +838,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_range",
@@ -774,6 +857,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -792,6 +876,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -810,6 +895,7 @@ _LISTEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -831,6 +917,7 @@ _LISTEVENTSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="error_events",
@@ -849,6 +936,7 @@ _LISTEVENTSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -867,6 +955,7 @@ _LISTEVENTSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_range_begin",
@@ -885,6 +974,7 @@ _LISTEVENTSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -906,6 +996,7 @@ _QUERYTIMERANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="period",
@@ -924,6 +1015,7 @@ _QUERYTIMERANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -945,6 +1037,7 @@ _SERVICECONTEXTFILTER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="service",
@@ -963,6 +1056,7 @@ _SERVICECONTEXTFILTER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="version",
@@ -981,6 +1075,7 @@ _SERVICECONTEXTFILTER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resource_type",
@@ -999,6 +1094,7 @@ _SERVICECONTEXTFILTER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1020,6 +1116,7 @@ _DELETEEVENTSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="project_name",
@@ -1038,6 +1135,7 @@ _DELETEEVENTSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1059,6 +1157,7 @@ _DELETEEVENTSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -1468,6 +1567,7 @@ _ERRORSTATSSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b'\312A"clouderrorreporting.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
+    create_key=_descriptor._internal_create_key,
     serialized_start=3096,
     serialized_end=3875,
     methods=[
@@ -1479,6 +1579,7 @@ _ERRORSTATSSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTGROUPSTATSREQUEST,
             output_type=_LISTGROUPSTATSRESPONSE,
             serialized_options=b"\202\323\344\223\002/\022-/v1beta1/{project_name=projects/*}/groupStats\332A\027project_name,time_range",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListEvents",
@@ -1488,6 +1589,7 @@ _ERRORSTATSSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTEVENTSREQUEST,
             output_type=_LISTEVENTSRESPONSE,
             serialized_options=b"\202\323\344\223\002+\022)/v1beta1/{project_name=projects/*}/events\332A\025project_name,group_id",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteEvents",
@@ -1497,6 +1599,7 @@ _ERRORSTATSSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEEVENTSREQUEST,
             output_type=_DELETEEVENTSRESPONSE,
             serialized_options=b"\202\323\344\223\002+*)/v1beta1/{project_name=projects/*}/events\332A\014project_name",
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )
