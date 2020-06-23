@@ -686,8 +686,8 @@ ServiceContext = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SERVICECONTEXT,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.common_pb2",
-        "__doc__": """Describes a running service that sends errors. Its version changes over
-  time and multiple versions can run in parallel.
+        "__doc__": """Describes a running service that sends errors. Its version
+  changes over time and multiple versions can run in parallel.
   
   
   Attributes:
