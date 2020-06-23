@@ -244,6 +244,7 @@ ReportErrorEventRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _REPORTERROREVENTREQUEST,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.report_errors_service_pb2",
         "__doc__": """A request for reporting an individual error event.
+  
   Attributes:
       project_name:
           Required. The resource name of the Google Cloud Platform
@@ -279,6 +280,7 @@ ReportedErrorEvent = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _REPORTEDERROREVENT,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.report_errors_service_pb2",
         "__doc__": """An error event which is reported to the Error Reporting system.
+  
   Attributes:
       event_time:
           Optional. Time when the event occurred. If not provided, the

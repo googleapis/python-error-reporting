@@ -646,6 +646,7 @@ ErrorGroup = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ERRORGROUP,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.common_pb2",
         "__doc__": """Description of a group of similar error events.
+  
   Attributes:
       name:
           The group resource name. Example: projects/my-
@@ -669,6 +670,7 @@ TrackingIssue = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TRACKINGISSUE,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.common_pb2",
         "__doc__": """Information related to tracking the progress on resolving the error.
+  
   Attributes:
       url:
           A URL pointing to a related entry in an issue tracking system.
@@ -686,6 +688,7 @@ ErrorEvent = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ERROREVENT,
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.common_pb2",
         "__doc__": """An error event which is returned by the Error Reporting system.
+  
   Attributes:
       event_time:
           Time when the event occurred as provided in the error report.
@@ -711,6 +714,7 @@ ServiceContext = _reflection.GeneratedProtocolMessageType(
         "__module__": "google.cloud.devtools.clouderrorreporting_v1beta1.proto.common_pb2",
         "__doc__": """Describes a running service that sends errors. Its version changes
   over time and multiple versions can run in parallel.
+  
   Attributes:
       service:
           An identifier of the service, such as the name of the
@@ -746,6 +750,7 @@ ErrorContext = _reflection.GeneratedProtocolMessageType(
   should be provided by the application when reporting an error, unless
   the error report has been generated automatically from Google App
   Engine logs.
+  
   Attributes:
       http_request:
           The HTTP request which was processed when the error was
@@ -780,6 +785,7 @@ HttpRequestContext = _reflection.GeneratedProtocolMessageType(
   should be provided by the application when reporting an error, unless
   the error report has been generated automatically from Google App
   Engine logs.
+  
   Attributes:
       method:
           The type of HTTP request, such as ``GET``, ``POST``, etc.
@@ -813,6 +819,7 @@ SourceLocation = _reflection.GeneratedProtocolMessageType(
   application when reporting an error, unless the error report contains
   a ``message`` with a supported exception stack trace. All fields are
   optional for the later case.
+  
   Attributes:
       file_path:
           The source code filename, which can include a truncated
