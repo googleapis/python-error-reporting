@@ -2,10 +2,10 @@
 import grpc
 
 from google.cloud.errorreporting_v1beta1.proto import (
-    common_pb2 as google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2,
+    common_pb2 as google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2,
 )
 from google.cloud.errorreporting_v1beta1.proto import (
-    error_group_service_pb2 as google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2,
+    error_group_service_pb2 as google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2,
 )
 
 
@@ -21,13 +21,13 @@ class ErrorGroupServiceStub(object):
     """
         self.GetGroup = channel.unary_unary(
             "/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/GetGroup",
-            request_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.GetGroupRequest.SerializeToString,
-            response_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.FromString,
+            request_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.GetGroupRequest.SerializeToString,
+            response_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.FromString,
         )
         self.UpdateGroup = channel.unary_unary(
             "/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/UpdateGroup",
-            request_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.UpdateGroupRequest.SerializeToString,
-            response_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.FromString,
+            request_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.UpdateGroupRequest.SerializeToString,
+            response_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.FromString,
         )
 
 
@@ -55,13 +55,13 @@ def add_ErrorGroupServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
         "GetGroup": grpc.unary_unary_rpc_method_handler(
             servicer.GetGroup,
-            request_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.GetGroupRequest.FromString,
-            response_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.SerializeToString,
+            request_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.GetGroupRequest.FromString,
+            response_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.SerializeToString,
         ),
         "UpdateGroup": grpc.unary_unary_rpc_method_handler(
             servicer.UpdateGroup,
-            request_deserializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.UpdateGroupRequest.FromString,
-            response_serializer=google_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.SerializeToString,
+            request_deserializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_error__group__service__pb2.UpdateGroupRequest.FromString,
+            response_serializer=google_dot_cloud_dot_devtools_dot_clouderrorreporting__v1beta1_dot_proto_dot_common__pb2.ErrorGroup.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
