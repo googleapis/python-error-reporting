@@ -203,6 +203,78 @@ class ErrorStatsServiceClient(object):
         self._inner_api_calls = {}
 
     # Service calls
+    def delete_events(
+        self,
+        project_name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes all error events of a given project.
+
+        Example:
+            >>> from google.cloud import errorreporting_v1beta1
+            >>>
+            >>> client = errorreporting_v1beta1.ErrorStatsServiceClient()
+            >>>
+            >>> project_name = client.project_path('[PROJECT]')
+            >>>
+            >>> response = client.delete_events(project_name)
+
+        Args:
+            project_name (str): Required. The resource name of the Google Cloud Platform project.
+                Written as ``projects/`` plus the `Google Cloud Platform project
+                ID <https://support.google.com/cloud/answer/6158840>`__. Example:
+                ``projects/my-project-123``.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.errorreporting_v1beta1.types.DeleteEventsResponse` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_events" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_events"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_events,
+                default_retry=self._method_configs["DeleteEvents"].retry,
+                default_timeout=self._method_configs["DeleteEvents"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = error_stats_service_pb2.DeleteEventsRequest(project_name=project_name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("project_name", project_name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["delete_events"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
     def list_group_stats(
         self,
         project_name,
@@ -484,75 +556,3 @@ class ErrorStatsServiceClient(object):
             response_token_field="next_page_token",
         )
         return iterator
-
-    def delete_events(
-        self,
-        project_name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes all error events of a given project.
-
-        Example:
-            >>> from google.cloud import errorreporting_v1beta1
-            >>>
-            >>> client = errorreporting_v1beta1.ErrorStatsServiceClient()
-            >>>
-            >>> project_name = client.project_path('[PROJECT]')
-            >>>
-            >>> response = client.delete_events(project_name)
-
-        Args:
-            project_name (str): Required. The resource name of the Google Cloud Platform project.
-                Written as ``projects/`` plus the `Google Cloud Platform project
-                ID <https://support.google.com/cloud/answer/6158840>`__. Example:
-                ``projects/my-project-123``.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.errorreporting_v1beta1.types.DeleteEventsResponse` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_events" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_events"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_events,
-                default_retry=self._method_configs["DeleteEvents"].retry,
-                default_timeout=self._method_configs["DeleteEvents"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = error_stats_service_pb2.DeleteEventsRequest(project_name=project_name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("project_name", project_name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["delete_events"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )

@@ -116,19 +116,6 @@ class ErrorGroupServiceGrpcTransport(object):
         return self._channel
 
     @property
-    def get_group(self):
-        """Return the gRPC stub for :meth:`ErrorGroupServiceClient.get_group`.
-
-        Get the specified group.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["error_group_service_stub"].GetGroup
-
-    @property
     def update_group(self):
         """Return the gRPC stub for :meth:`ErrorGroupServiceClient.update_group`.
 
@@ -141,3 +128,16 @@ class ErrorGroupServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["error_group_service_stub"].UpdateGroup
+
+    @property
+    def get_group(self):
+        """Return the gRPC stub for :meth:`ErrorGroupServiceClient.get_group`.
+
+        Get the specified group.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["error_group_service_stub"].GetGroup

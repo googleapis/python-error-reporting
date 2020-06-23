@@ -116,6 +116,19 @@ class ErrorStatsServiceGrpcTransport(object):
         return self._channel
 
     @property
+    def delete_events(self):
+        """Return the gRPC stub for :meth:`ErrorStatsServiceClient.delete_events`.
+
+        Deletes all error events of a given project.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["error_stats_service_stub"].DeleteEvents
+
+    @property
     def list_group_stats(self):
         """Return the gRPC stub for :meth:`ErrorStatsServiceClient.list_group_stats`.
 
@@ -140,16 +153,3 @@ class ErrorStatsServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["error_stats_service_stub"].ListEvents
-
-    @property
-    def delete_events(self):
-        """Return the gRPC stub for :meth:`ErrorStatsServiceClient.delete_events`.
-
-        Deletes all error events of a given project.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["error_stats_service_stub"].DeleteEvents
