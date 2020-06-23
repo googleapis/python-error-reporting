@@ -137,10 +137,12 @@ GetGroupRequest = _reflection.GeneratedProtocolMessageType(
         "__doc__": """A request to return an individual group.
   Attributes:
       group_name:
-          Required. The group resource name. Written as
-          projects/projectID/groups/group_name. Call groupStats.list to
-          return a list of groups belonging to this project.  Example:
-          projects/my-project-123/groups/my-group
+          The group resource name. Written as
+          ``projects/{projectID}/groups/{group_name}``. Call
+          ```groupStats.list`` <https://cloud.google.com/error-
+          reporting/reference/rest/v1beta1/projects.groupStats/list>`__
+          to return a list of groups belonging to this project.
+          Example: ``projects/my-project-123/groups/my-group``
   """,
         # @@protoc_insertion_point(class_scope:google.devtools.clouderrorreporting.v1beta1.GetGroupRequest)
     },

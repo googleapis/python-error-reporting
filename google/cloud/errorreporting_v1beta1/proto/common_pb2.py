@@ -672,7 +672,7 @@ TrackingIssue = _reflection.GeneratedProtocolMessageType(
   Attributes:
       url:
           A URL pointing to a related entry in an issue tracking system.
-          Example: https://github.com/user/project/issues/4
+          Example: ``https://github.com/user/project/issues/4``
   """,
         # @@protoc_insertion_point(class_scope:google.devtools.clouderrorreporting.v1beta1.TrackingIssue)
     },

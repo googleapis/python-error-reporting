@@ -288,11 +288,12 @@ class ErrorGroupServiceClient(object):
             >>> response = client.get_group(group_name)
 
         Args:
-            group_name (str): Required. The group resource name. Written as
-                projects/projectID/groups/group_name. Call groupStats.list to return a
-                list of groups belonging to this project.
+            group_name (str): The group resource name. Written as
+                ``projects/{projectID}/groups/{group_name}``. Call
+                ```groupStats.list`` <https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list>`__
+                to return a list of groups belonging to this project.
 
-                Example: projects/my-project-123/groups/my-group
+                Example: ``projects/my-project-123/groups/my-group``
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
