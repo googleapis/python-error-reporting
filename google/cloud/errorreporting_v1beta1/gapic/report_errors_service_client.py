@@ -48,7 +48,7 @@ from google.protobuf import timestamp_pb2
 
 
 _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
-    "google-cloud-devtools-clouderrorreporting",
+    "google-cloud-error-reporting",
 ).version
 
 

@@ -37,11 +37,7 @@ s.move(library / "tests/unit/gapic/v1beta1")
 s.move(library / "tests/system/gapic/v1beta1")
 
 s.replace(
-    [
-      "google/cloud/errorreporting_v1beta1/gapic/error_group_service_client.py",
-      "google/cloud/errorreporting_v1beta1/gapic/error_stats_service_client.py",
-      "google/cloud/errorreporting_v1beta1/gapic/ereport_errors_service_client.py",
-    ],
+    "google/cloud/**/*py",
     "google-cloud-devtools-clouderrorreporting",
     "google-cloud-error-reporting",
 )
@@ -78,5 +74,9 @@ templated_files = common.py_library(
     unit_cov_level=97, cov_level=98, system_test_dependencies=["test_utils"]
 )
 s.move(templated_files)
+
+# TODO(busunkim): Use latest sphinx after microgenerator transition
+s.replace("noxfile.py", """['"]sphinx['"]""", '"sphinx<3.0.0"')
+
 
 s.shell.run(["nox", "-s", "blacken"], hide_output=False)
