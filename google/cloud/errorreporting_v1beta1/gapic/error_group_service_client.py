@@ -75,7 +75,7 @@ class ErrorGroupServiceClient(object):
     from_service_account_json = from_service_account_file
 
     @classmethod
-    def error_group_path(cls, project, group):
+    def group_path(cls, project, group):
         """Return a fully-qualified error_group string."""
         return google.api_core.path_template.expand(
             "projects/{project}/groups/{group}", project=project, group=group,
@@ -283,7 +283,7 @@ class ErrorGroupServiceClient(object):
             >>>
             >>> client = errorreporting_v1beta1.ErrorGroupServiceClient()
             >>>
-            >>> group_name = client.error_group_path('[PROJECT]', '[GROUP]')
+            >>> group_name = client.group_path('[PROJECT]', '[GROUP]')
             >>>
             >>> response = client.get_group(group_name)
 

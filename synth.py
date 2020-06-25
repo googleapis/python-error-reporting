@@ -67,6 +67,12 @@ targets = [
 
 s.replace(targets, DISCARD_AUTH_BOILERPLATE, r"")
 
+# TODO(busunkim): Remove during microgenerator transition
+s.replace(
+    ["google/cloud/**/*.py", "tests/**/*.py"],
+    "error_group_path",
+    "group_path"
+)
 # ----------------------------------------------------------------------------
 # Add templated files
 # ----------------------------------------------------------------------------

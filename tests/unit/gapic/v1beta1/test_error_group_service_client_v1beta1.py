@@ -115,7 +115,7 @@ class TestErrorGroupServiceClient(object):
             client = errorreporting_v1beta1.ErrorGroupServiceClient()
 
         # Setup Request
-        group_name = client.error_group_path("[PROJECT]", "[GROUP]")
+        group_name = client.group_path("[PROJECT]", "[GROUP]")
 
         response = client.get_group(group_name)
         assert expected_response == response
@@ -136,7 +136,7 @@ class TestErrorGroupServiceClient(object):
             client = errorreporting_v1beta1.ErrorGroupServiceClient()
 
         # Setup request
-        group_name = client.error_group_path("[PROJECT]", "[GROUP]")
+        group_name = client.group_path("[PROJECT]", "[GROUP]")
 
         with pytest.raises(CustomException):
             client.get_group(group_name)
