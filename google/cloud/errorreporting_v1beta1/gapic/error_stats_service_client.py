@@ -280,9 +280,9 @@ class ErrorStatsServiceClient(object):
     def list_group_stats(
         self,
         project_name,
+        time_range=None,  # DO NOT MOVE, see synth.py
         group_id=None,
         service_filter=None,
-        time_range=None,
         timed_count_duration=None,
         alignment=None,
         alignment_time=None,
@@ -292,6 +292,7 @@ class ErrorStatsServiceClient(object):
         timeout=google.api_core.gapic_v1.method.DEFAULT,
         metadata=None,
     ):
+
         """
         Lists the specified groups.
 

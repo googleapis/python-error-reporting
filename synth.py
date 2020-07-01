@@ -73,6 +73,46 @@ s.replace(
     "error_group_path",
     "group_path"
 )
+
+# TODO(busunkim) Remove during microgenerator transition
+# Keeps the previous param order to avoid breaking existing
+# code
+n = s.replace(
+    "google/cloud/**/error_stats_service_client.py",
+"""def list_group_stats\(
+\s+self,
+\s+project_name,
+\s+group_id=None,
+\s+service_filter=None,
+\s+time_range=None,
+\s+timed_count_duration=None,
+\s+alignment=None,
+\s+alignment_time=None,
+\s+order=None,
+\s+page_size=None,
+\s+retry=google\.api_core\.gapic_v1\.method\.DEFAULT,
+\s+timeout=google\.api_core\.gapic_v1\.method\.DEFAULT,
+\s+metadata=None\):""",
+"""def list_group_stats(
+        self,
+        project_name,
+        time_range=None, # DO NOT MOVE, see synth.py
+        group_id=None,
+        service_filter=None,
+        timed_count_duration=None,
+        alignment=None,
+        alignment_time=None,
+        order=None,
+        page_size=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+"""
+)
+
+if n != 1:
+    raise Exception("Required replacement not made.")
 # ----------------------------------------------------------------------------
 # Add templated files
 # ----------------------------------------------------------------------------
