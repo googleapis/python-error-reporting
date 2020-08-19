@@ -138,7 +138,9 @@ class TestClient(unittest.TestCase):
             payload = make_api.return_value.report_error_event.call_args[0][0]
             make_api.assert_called_once_with(client)
 
-        self.assertEqual(payload["serviceContext"], {"service": client.DEFAULT_SERVICE})
+        self.assertEqual(
+            payload["service_context"], {"service": client.DEFAULT_SERVICE}
+        )
         self.assertIn("test_report", payload["message"])
         self.assertIn("test_client.py", payload["message"])
 
@@ -158,7 +160,9 @@ class TestClient(unittest.TestCase):
             mock_report = _error_api.return_value.report_error_event
             payload = mock_report.call_args[0][0]
 
-        self.assertEqual(payload["serviceContext"], {"service": client.DEFAULT_SERVICE})
+        self.assertEqual(
+            payload["service_context"], {"service": client.DEFAULT_SERVICE}
+        )
         self.assertIn("test_report", payload["message"])
         self.assertIn("test_client.py", payload["message"])
         self.assertIsNotNone(client.report_errors_api)
@@ -190,7 +194,7 @@ class TestClient(unittest.TestCase):
 
         payload = self._get_report_payload(error_api)
         self.assertEqual(
-            payload["serviceContext"], {"service": service, "version": version}
+            payload["service_context"], {"service": service, "version": version}
         )
         self.assertIn(
             "test_report_exception_with_service_version_in_constructor",

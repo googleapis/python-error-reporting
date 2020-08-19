@@ -19,8 +19,19 @@ API Reference
 
    client
    util
-   gapic/v1beta1/api
-   gapic/v1beta1/types
+   errorreporting_v1beta1/services
+   errorreporting_v1beta1/types
+
+
+Migration Guide
+---------------
+
+See the guide below for instructions on migrating to the 1.x release of this library.
+
+.. toctree::
+    :maxdepth: 2
+
+    UPGRADING
 
 
 Changelog
