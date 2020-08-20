@@ -250,12 +250,12 @@ class Client(ClientWithProject):
                   the API.
          """
         payload = {
-            "service_context": {"service": self.service},
+            "serviceContext": {"service": self.service},
             "message": "{0}".format(message),
         }
 
         if self.version:
-            payload["service_context"]["version"] = self.version
+            payload["serviceContext"]["version"] = self.version
 
         if report_location or http_context or user:
             payload["context"] = {}

@@ -13,6 +13,7 @@
 # limitations under the License.
 
 """GAX wrapper for Error Reporting API requests."""
+import json
 
 import google.cloud.errorreporting_v1beta1
 
@@ -61,8 +62,8 @@ class _ErrorReportingGapicApi(object):
             :meth:~`google.cloud.error_reporting.client._build_error_report`
         """
         project_name = f"projects/{self._project}"
-        error_report_payload = google.cloud.errorreporting_v1beta1.ReportedErrorEvent(
-            error_report
+        error_report_payload = google.cloud.errorreporting_v1beta1.ReportedErrorEvent.from_json(
+            json.dumps(error_report)
         )
         self._gapic_api.report_error_event(
             project_name=project_name, event=error_report_payload
