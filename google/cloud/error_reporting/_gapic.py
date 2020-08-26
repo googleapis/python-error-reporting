@@ -62,9 +62,14 @@ class _ErrorReportingGapicApi(object):
             :meth:~`google.cloud.error_reporting.client._build_error_report`
         """
         project_name = f"projects/{self._project}"
+
+        # Since error_report uses camel case for key names (like serviceContext),
+        # but ReportedErrorEvent uses snake case for key names (like service_context),
+        # we need to route throught json.
         error_report_payload = google.cloud.errorreporting_v1beta1.ReportedErrorEvent.from_json(
             json.dumps(error_report)
         )
+
         self._gapic_api.report_error_event(
             project_name=project_name, event=error_report_payload
         )
