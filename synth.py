@@ -29,7 +29,7 @@ library = gapic.py_library(
     bazel_target="//google/devtools/clouderrorreporting/v1beta1:devtools-clouderrorreporting-v1beta1-py",
     include_protos=True,
 )
-s.move(library, excludes=["nox.py", "setup.py", "README.rst", "docs/index.rst"])
+s.move(library, excludes=["nox.py", "setup.py", "README.rst", "docs/index.rst", "google/cloud/errorreporting/"])
 
 # ----------------------------------------------------------------------------
 # Add templated files
