@@ -47,8 +47,51 @@ class ErrorStatsServiceAsyncClient:
     DEFAULT_ENDPOINT = ErrorStatsServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = ErrorStatsServiceClient.DEFAULT_MTLS_ENDPOINT
 
+    error_group_path = staticmethod(ErrorStatsServiceClient.error_group_path)
+    parse_error_group_path = staticmethod(
+        ErrorStatsServiceClient.parse_error_group_path
+    )
+
+    common_billing_account_path = staticmethod(
+        ErrorStatsServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        ErrorStatsServiceClient.parse_common_billing_account_path
+    )
+
+    common_folder_path = staticmethod(ErrorStatsServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(
+        ErrorStatsServiceClient.parse_common_folder_path
+    )
+
+    common_organization_path = staticmethod(
+        ErrorStatsServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        ErrorStatsServiceClient.parse_common_organization_path
+    )
+
+    common_project_path = staticmethod(ErrorStatsServiceClient.common_project_path)
+    parse_common_project_path = staticmethod(
+        ErrorStatsServiceClient.parse_common_project_path
+    )
+
+    common_location_path = staticmethod(ErrorStatsServiceClient.common_location_path)
+    parse_common_location_path = staticmethod(
+        ErrorStatsServiceClient.parse_common_location_path
+    )
+
     from_service_account_file = ErrorStatsServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
+
+    @property
+    def transport(self) -> ErrorStatsServiceTransport:
+        """Return the transport used by the client instance.
+
+        Returns:
+            ErrorStatsServiceTransport: The transport used by the client instance.
+        """
+        return self._client.transport
 
     get_transport_class = functools.partial(
         type(ErrorStatsServiceClient).get_transport_class, type(ErrorStatsServiceClient)
@@ -161,7 +204,8 @@ class ErrorStatsServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([project_name, time_range]):
+        has_flattened_params = any([project_name, time_range])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -255,7 +299,8 @@ class ErrorStatsServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([project_name, group_id]):
+        has_flattened_params = any([project_name, group_id])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -338,7 +383,8 @@ class ErrorStatsServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([project_name]):
+        has_flattened_params = any([project_name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."

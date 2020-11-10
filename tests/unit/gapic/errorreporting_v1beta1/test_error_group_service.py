@@ -99,12 +99,12 @@ def test_error_group_service_client_from_service_account_file(client_class):
     ) as factory:
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
-        assert client._transport._credentials == creds
+        assert client.transport._credentials == creds
 
         client = client_class.from_service_account_json("dummy/file/path.json")
-        assert client._transport._credentials == creds
+        assert client.transport._credentials == creds
 
-        assert client._transport._host == "clouderrorreporting.googleapis.com:443"
+        assert client.transport._host == "clouderrorreporting.googleapis.com:443"
 
 
 def test_error_group_service_client_get_transport_class():
@@ -464,7 +464,7 @@ def test_get_group(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.get_group), "__call__") as call:
+    with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup(
             name="name_value", group_id="group_id_value",
@@ -479,6 +479,7 @@ def test_get_group(
         assert args[0] == error_group_service.GetGroupRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, common.ErrorGroup)
 
     assert response.name == "name_value"
@@ -491,19 +492,19 @@ def test_get_group_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_get_group_async(transport: str = "grpc_asyncio"):
+async def test_get_group_async(
+    transport: str = "grpc_asyncio", request_type=error_group_service.GetGroupRequest
+):
     client = ErrorGroupServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = error_group_service.GetGroupRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.get_group), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             common.ErrorGroup(name="name_value", group_id="group_id_value",)
@@ -515,7 +516,7 @@ async def test_get_group_async(transport: str = "grpc_asyncio"):
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == error_group_service.GetGroupRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, common.ErrorGroup)
@@ -523,6 +524,11 @@ async def test_get_group_async(transport: str = "grpc_asyncio"):
     assert response.name == "name_value"
 
     assert response.group_id == "group_id_value"
+
+
+@pytest.mark.asyncio
+async def test_get_group_async_from_dict():
+    await test_get_group_async(request_type=dict)
 
 
 def test_get_group_field_headers():
@@ -534,7 +540,7 @@ def test_get_group_field_headers():
     request.group_name = "group_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.get_group), "__call__") as call:
+    with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         call.return_value = common.ErrorGroup()
 
         client.get_group(request)
@@ -561,9 +567,7 @@ async def test_get_group_field_headers_async():
     request.group_name = "group_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.get_group), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(common.ErrorGroup())
 
         await client.get_group(request)
@@ -582,7 +586,7 @@ def test_get_group_flattened():
     client = ErrorGroupServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.get_group), "__call__") as call:
+    with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup()
 
@@ -616,9 +620,7 @@ async def test_get_group_flattened_async():
     )
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.get_group), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup()
 
@@ -661,7 +663,7 @@ def test_update_group(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.update_group), "__call__") as call:
+    with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup(
             name="name_value", group_id="group_id_value",
@@ -676,6 +678,7 @@ def test_update_group(
         assert args[0] == error_group_service.UpdateGroupRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, common.ErrorGroup)
 
     assert response.name == "name_value"
@@ -688,19 +691,19 @@ def test_update_group_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_update_group_async(transport: str = "grpc_asyncio"):
+async def test_update_group_async(
+    transport: str = "grpc_asyncio", request_type=error_group_service.UpdateGroupRequest
+):
     client = ErrorGroupServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = error_group_service.UpdateGroupRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.update_group), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             common.ErrorGroup(name="name_value", group_id="group_id_value",)
@@ -712,7 +715,7 @@ async def test_update_group_async(transport: str = "grpc_asyncio"):
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == error_group_service.UpdateGroupRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, common.ErrorGroup)
@@ -720,6 +723,11 @@ async def test_update_group_async(transport: str = "grpc_asyncio"):
     assert response.name == "name_value"
 
     assert response.group_id == "group_id_value"
+
+
+@pytest.mark.asyncio
+async def test_update_group_async_from_dict():
+    await test_update_group_async(request_type=dict)
 
 
 def test_update_group_field_headers():
@@ -731,7 +739,7 @@ def test_update_group_field_headers():
     request.group.name = "group.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.update_group), "__call__") as call:
+    with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         call.return_value = common.ErrorGroup()
 
         client.update_group(request)
@@ -758,9 +766,7 @@ async def test_update_group_field_headers_async():
     request.group.name = "group.name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.update_group), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(common.ErrorGroup())
 
         await client.update_group(request)
@@ -779,7 +785,7 @@ def test_update_group_flattened():
     client = ErrorGroupServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.update_group), "__call__") as call:
+    with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup()
 
@@ -814,9 +820,7 @@ async def test_update_group_flattened_async():
     )
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.update_group), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup()
 
@@ -886,7 +890,7 @@ def test_transport_instance():
         credentials=credentials.AnonymousCredentials(),
     )
     client = ErrorGroupServiceClient(transport=transport)
-    assert client._transport is transport
+    assert client.transport is transport
 
 
 def test_transport_get_channel():
@@ -922,7 +926,7 @@ def test_transport_adc(transport_class):
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
     client = ErrorGroupServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client._transport, transports.ErrorGroupServiceGrpcTransport,)
+    assert isinstance(client.transport, transports.ErrorGroupServiceGrpcTransport,)
 
 
 def test_error_group_service_base_transport_error():
@@ -1017,7 +1021,7 @@ def test_error_group_service_host_no_port():
             api_endpoint="clouderrorreporting.googleapis.com"
         ),
     )
-    assert client._transport._host == "clouderrorreporting.googleapis.com:443"
+    assert client.transport._host == "clouderrorreporting.googleapis.com:443"
 
 
 def test_error_group_service_host_with_port():
@@ -1027,7 +1031,7 @@ def test_error_group_service_host_with_port():
             api_endpoint="clouderrorreporting.googleapis.com:8000"
         ),
     )
-    assert client._transport._host == "clouderrorreporting.googleapis.com:8000"
+    assert client.transport._host == "clouderrorreporting.googleapis.com:8000"
 
 
 def test_error_group_service_grpc_transport_channel():
@@ -1157,6 +1161,107 @@ def test_parse_error_group_path():
 
     # Check that the path construction is reversible.
     actual = ErrorGroupServiceClient.parse_error_group_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "oyster"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = ErrorGroupServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "nudibranch",
+    }
+    path = ErrorGroupServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorGroupServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "cuttlefish"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = ErrorGroupServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "mussel",
+    }
+    path = ErrorGroupServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorGroupServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "winkle"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = ErrorGroupServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "nautilus",
+    }
+    path = ErrorGroupServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorGroupServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_project_path():
+    project = "scallop"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = ErrorGroupServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "abalone",
+    }
+    path = ErrorGroupServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorGroupServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "squid"
+    location = "clam"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = ErrorGroupServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "whelk",
+        "location": "octopus",
+    }
+    path = ErrorGroupServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorGroupServiceClient.parse_common_location_path(path)
     assert expected == actual
 
 
