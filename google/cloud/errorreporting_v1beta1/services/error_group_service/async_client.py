@@ -49,46 +49,8 @@ class ErrorGroupServiceAsyncClient:
         ErrorGroupServiceClient.parse_error_group_path
     )
 
-    common_billing_account_path = staticmethod(
-        ErrorGroupServiceClient.common_billing_account_path
-    )
-    parse_common_billing_account_path = staticmethod(
-        ErrorGroupServiceClient.parse_common_billing_account_path
-    )
-
-    common_folder_path = staticmethod(ErrorGroupServiceClient.common_folder_path)
-    parse_common_folder_path = staticmethod(
-        ErrorGroupServiceClient.parse_common_folder_path
-    )
-
-    common_organization_path = staticmethod(
-        ErrorGroupServiceClient.common_organization_path
-    )
-    parse_common_organization_path = staticmethod(
-        ErrorGroupServiceClient.parse_common_organization_path
-    )
-
-    common_project_path = staticmethod(ErrorGroupServiceClient.common_project_path)
-    parse_common_project_path = staticmethod(
-        ErrorGroupServiceClient.parse_common_project_path
-    )
-
-    common_location_path = staticmethod(ErrorGroupServiceClient.common_location_path)
-    parse_common_location_path = staticmethod(
-        ErrorGroupServiceClient.parse_common_location_path
-    )
-
     from_service_account_file = ErrorGroupServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
-
-    @property
-    def transport(self) -> ErrorGroupServiceTransport:
-        """Return the transport used by the client instance.
-
-        Returns:
-            ErrorGroupServiceTransport: The transport used by the client instance.
-        """
-        return self._client.transport
 
     get_transport_class = functools.partial(
         type(ErrorGroupServiceClient).get_transport_class, type(ErrorGroupServiceClient)
@@ -183,8 +145,7 @@ class ErrorGroupServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([group_name])
-        if request is not None and has_flattened_params:
+        if request is not None and any([group_name]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -258,8 +219,7 @@ class ErrorGroupServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        has_flattened_params = any([group])
-        if request is not None and has_flattened_params:
+        if request is not None and any([group]):
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
