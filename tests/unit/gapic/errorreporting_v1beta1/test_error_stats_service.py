@@ -102,12 +102,12 @@ def test_error_stats_service_client_from_service_account_file(client_class):
     ) as factory:
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
-        assert client._transport._credentials == creds
+        assert client.transport._credentials == creds
 
         client = client_class.from_service_account_json("dummy/file/path.json")
-        assert client._transport._credentials == creds
+        assert client.transport._credentials == creds
 
-        assert client._transport._host == "clouderrorreporting.googleapis.com:443"
+        assert client.transport._host == "clouderrorreporting.googleapis.com:443"
 
 
 def test_error_stats_service_client_get_transport_class():
@@ -467,9 +467,7 @@ def test_list_group_stats(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.ListGroupStatsResponse(
             next_page_token="next_page_token_value",
@@ -484,6 +482,7 @@ def test_list_group_stats(
         assert args[0] == error_stats_service.ListGroupStatsRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, pagers.ListGroupStatsPager)
 
     assert response.next_page_token == "next_page_token_value"
@@ -494,19 +493,20 @@ def test_list_group_stats_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_list_group_stats_async(transport: str = "grpc_asyncio"):
+async def test_list_group_stats_async(
+    transport: str = "grpc_asyncio",
+    request_type=error_stats_service.ListGroupStatsRequest,
+):
     client = ErrorStatsServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = error_stats_service.ListGroupStatsRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             error_stats_service.ListGroupStatsResponse(
@@ -520,12 +520,17 @@ async def test_list_group_stats_async(transport: str = "grpc_asyncio"):
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == error_stats_service.ListGroupStatsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListGroupStatsAsyncPager)
 
     assert response.next_page_token == "next_page_token_value"
+
+
+@pytest.mark.asyncio
+async def test_list_group_stats_async_from_dict():
+    await test_list_group_stats_async(request_type=dict)
 
 
 def test_list_group_stats_field_headers():
@@ -537,9 +542,7 @@ def test_list_group_stats_field_headers():
     request.project_name = "project_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         call.return_value = error_stats_service.ListGroupStatsResponse()
 
         client.list_group_stats(request)
@@ -568,9 +571,7 @@ async def test_list_group_stats_field_headers_async():
     request.project_name = "project_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             error_stats_service.ListGroupStatsResponse()
         )
@@ -593,9 +594,7 @@ def test_list_group_stats_flattened():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.ListGroupStatsResponse()
 
@@ -642,9 +641,7 @@ async def test_list_group_stats_flattened_async():
     )
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.ListGroupStatsResponse()
 
@@ -694,9 +691,7 @@ def test_list_group_stats_pager():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             error_stats_service.ListGroupStatsResponse(
@@ -740,9 +735,7 @@ def test_list_group_stats_pages():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._transport.list_group_stats), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_group_stats), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             error_stats_service.ListGroupStatsResponse(
@@ -779,9 +772,7 @@ async def test_list_group_stats_async_pager():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.list_group_stats),
-        "__call__",
-        new_callable=mock.AsyncMock,
+        type(client.transport.list_group_stats), "__call__", new_callable=mock.AsyncMock
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -826,9 +817,7 @@ async def test_list_group_stats_async_pages():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.list_group_stats),
-        "__call__",
-        new_callable=mock.AsyncMock,
+        type(client.transport.list_group_stats), "__call__", new_callable=mock.AsyncMock
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -874,7 +863,7 @@ def test_list_events(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.list_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.ListEventsResponse(
             next_page_token="next_page_token_value",
@@ -889,6 +878,7 @@ def test_list_events(
         assert args[0] == error_stats_service.ListEventsRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, pagers.ListEventsPager)
 
     assert response.next_page_token == "next_page_token_value"
@@ -899,19 +889,19 @@ def test_list_events_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_list_events_async(transport: str = "grpc_asyncio"):
+async def test_list_events_async(
+    transport: str = "grpc_asyncio", request_type=error_stats_service.ListEventsRequest
+):
     client = ErrorStatsServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = error_stats_service.ListEventsRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.list_events), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             error_stats_service.ListEventsResponse(
@@ -925,12 +915,17 @@ async def test_list_events_async(transport: str = "grpc_asyncio"):
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == error_stats_service.ListEventsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListEventsAsyncPager)
 
     assert response.next_page_token == "next_page_token_value"
+
+
+@pytest.mark.asyncio
+async def test_list_events_async_from_dict():
+    await test_list_events_async(request_type=dict)
 
 
 def test_list_events_field_headers():
@@ -942,7 +937,7 @@ def test_list_events_field_headers():
     request.project_name = "project_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.list_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         call.return_value = error_stats_service.ListEventsResponse()
 
         client.list_events(request)
@@ -971,9 +966,7 @@ async def test_list_events_field_headers_async():
     request.project_name = "project_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.list_events), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             error_stats_service.ListEventsResponse()
         )
@@ -996,7 +989,7 @@ def test_list_events_flattened():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.list_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.ListEventsResponse()
 
@@ -1036,9 +1029,7 @@ async def test_list_events_flattened_async():
     )
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.list_events), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.ListEventsResponse()
 
@@ -1081,7 +1072,7 @@ def test_list_events_pager():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.list_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             error_stats_service.ListEventsResponse(
@@ -1121,7 +1112,7 @@ def test_list_events_pages():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.list_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.list_events), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             error_stats_service.ListEventsResponse(
@@ -1154,9 +1145,7 @@ async def test_list_events_async_pager():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.list_events),
-        "__call__",
-        new_callable=mock.AsyncMock,
+        type(client.transport.list_events), "__call__", new_callable=mock.AsyncMock
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -1195,9 +1184,7 @@ async def test_list_events_async_pages():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.list_events),
-        "__call__",
-        new_callable=mock.AsyncMock,
+        type(client.transport.list_events), "__call__", new_callable=mock.AsyncMock
     ) as call:
         # Set the response to a series of pages.
         call.side_effect = (
@@ -1239,7 +1226,7 @@ def test_delete_events(
     request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.delete_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.delete_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.DeleteEventsResponse()
 
@@ -1252,6 +1239,7 @@ def test_delete_events(
         assert args[0] == error_stats_service.DeleteEventsRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, error_stats_service.DeleteEventsResponse)
 
 
@@ -1260,19 +1248,20 @@ def test_delete_events_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_delete_events_async(transport: str = "grpc_asyncio"):
+async def test_delete_events_async(
+    transport: str = "grpc_asyncio",
+    request_type=error_stats_service.DeleteEventsRequest,
+):
     client = ErrorStatsServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = error_stats_service.DeleteEventsRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.delete_events), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.delete_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             error_stats_service.DeleteEventsResponse()
@@ -1284,10 +1273,15 @@ async def test_delete_events_async(transport: str = "grpc_asyncio"):
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == error_stats_service.DeleteEventsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, error_stats_service.DeleteEventsResponse)
+
+
+@pytest.mark.asyncio
+async def test_delete_events_async_from_dict():
+    await test_delete_events_async(request_type=dict)
 
 
 def test_delete_events_field_headers():
@@ -1299,7 +1293,7 @@ def test_delete_events_field_headers():
     request.project_name = "project_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.delete_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.delete_events), "__call__") as call:
         call.return_value = error_stats_service.DeleteEventsResponse()
 
         client.delete_events(request)
@@ -1328,9 +1322,7 @@ async def test_delete_events_field_headers_async():
     request.project_name = "project_name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.delete_events), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.delete_events), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             error_stats_service.DeleteEventsResponse()
         )
@@ -1353,7 +1345,7 @@ def test_delete_events_flattened():
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(type(client._transport.delete_events), "__call__") as call:
+    with mock.patch.object(type(client.transport.delete_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.DeleteEventsResponse()
 
@@ -1388,9 +1380,7 @@ async def test_delete_events_flattened_async():
     )
 
     # Mock the actual call within the gRPC stub, and fake the request.
-    with mock.patch.object(
-        type(client._client._transport.delete_events), "__call__"
-    ) as call:
+    with mock.patch.object(type(client.transport.delete_events), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = error_stats_service.DeleteEventsResponse()
 
@@ -1460,7 +1450,7 @@ def test_transport_instance():
         credentials=credentials.AnonymousCredentials(),
     )
     client = ErrorStatsServiceClient(transport=transport)
-    assert client._transport is transport
+    assert client.transport is transport
 
 
 def test_transport_get_channel():
@@ -1496,7 +1486,7 @@ def test_transport_adc(transport_class):
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
     client = ErrorStatsServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client._transport, transports.ErrorStatsServiceGrpcTransport,)
+    assert isinstance(client.transport, transports.ErrorStatsServiceGrpcTransport,)
 
 
 def test_error_stats_service_base_transport_error():
@@ -1592,7 +1582,7 @@ def test_error_stats_service_host_no_port():
             api_endpoint="clouderrorreporting.googleapis.com"
         ),
     )
-    assert client._transport._host == "clouderrorreporting.googleapis.com:443"
+    assert client.transport._host == "clouderrorreporting.googleapis.com:443"
 
 
 def test_error_stats_service_host_with_port():
@@ -1602,7 +1592,7 @@ def test_error_stats_service_host_with_port():
             api_endpoint="clouderrorreporting.googleapis.com:8000"
         ),
     )
-    assert client._transport._host == "clouderrorreporting.googleapis.com:8000"
+    assert client.transport._host == "clouderrorreporting.googleapis.com:8000"
 
 
 def test_error_stats_service_grpc_transport_channel():
@@ -1614,6 +1604,7 @@ def test_error_stats_service_grpc_transport_channel():
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
+    assert transport._ssl_channel_credentials == None
 
 
 def test_error_stats_service_grpc_asyncio_transport_channel():
@@ -1625,6 +1616,7 @@ def test_error_stats_service_grpc_asyncio_transport_channel():
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
+    assert transport._ssl_channel_credentials == None
 
 
 @pytest.mark.parametrize(
@@ -1672,6 +1664,7 @@ def test_error_stats_service_transport_channel_mtls_with_client_cert_source(
                 quota_project_id=None,
             )
             assert transport.grpc_channel == mock_grpc_channel
+            assert transport._ssl_channel_credentials == mock_ssl_cred
 
 
 @pytest.mark.parametrize(
@@ -1712,6 +1705,128 @@ def test_error_stats_service_transport_channel_mtls_with_adc(transport_class):
                 quota_project_id=None,
             )
             assert transport.grpc_channel == mock_grpc_channel
+
+
+def test_error_group_path():
+    project = "squid"
+    group = "clam"
+
+    expected = "projects/{project}/groups/{group}".format(project=project, group=group,)
+    actual = ErrorStatsServiceClient.error_group_path(project, group)
+    assert expected == actual
+
+
+def test_parse_error_group_path():
+    expected = {
+        "project": "whelk",
+        "group": "octopus",
+    }
+    path = ErrorStatsServiceClient.error_group_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorStatsServiceClient.parse_error_group_path(path)
+    assert expected == actual
+
+
+def test_common_billing_account_path():
+    billing_account = "oyster"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = ErrorStatsServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "nudibranch",
+    }
+    path = ErrorStatsServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorStatsServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "cuttlefish"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = ErrorStatsServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "mussel",
+    }
+    path = ErrorStatsServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorStatsServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "winkle"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = ErrorStatsServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "nautilus",
+    }
+    path = ErrorStatsServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorStatsServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_project_path():
+    project = "scallop"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = ErrorStatsServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "abalone",
+    }
+    path = ErrorStatsServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorStatsServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "squid"
+    location = "clam"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = ErrorStatsServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "whelk",
+        "location": "octopus",
+    }
+    path = ErrorStatsServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ErrorStatsServiceClient.parse_common_location_path(path)
+    assert expected == actual
 
 
 def test_client_withDEFAULT_CLIENT_INFO():

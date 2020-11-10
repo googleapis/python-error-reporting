@@ -102,12 +102,12 @@ def test_report_errors_service_client_from_service_account_file(client_class):
     ) as factory:
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
-        assert client._transport._credentials == creds
+        assert client.transport._credentials == creds
 
         client = client_class.from_service_account_json("dummy/file/path.json")
-        assert client._transport._credentials == creds
+        assert client.transport._credentials == creds
 
-        assert client._transport._host == "clouderrorreporting.googleapis.com:443"
+        assert client.transport._host == "clouderrorreporting.googleapis.com:443"
 
 
 def test_report_errors_service_client_get_transport_class():
@@ -480,7 +480,7 @@ def test_report_error_event(
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._transport.report_error_event), "__call__"
+        type(client.transport.report_error_event), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = report_errors_service.ReportErrorEventResponse()
@@ -494,6 +494,7 @@ def test_report_error_event(
         assert args[0] == report_errors_service.ReportErrorEventRequest()
 
     # Establish that the response is the type that we expect.
+
     assert isinstance(response, report_errors_service.ReportErrorEventResponse)
 
 
@@ -502,18 +503,21 @@ def test_report_error_event_from_dict():
 
 
 @pytest.mark.asyncio
-async def test_report_error_event_async(transport: str = "grpc_asyncio"):
+async def test_report_error_event_async(
+    transport: str = "grpc_asyncio",
+    request_type=report_errors_service.ReportErrorEventRequest,
+):
     client = ReportErrorsServiceAsyncClient(
         credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
     # and we are mocking out the actual API, so just send an empty request.
-    request = report_errors_service.ReportErrorEventRequest()
+    request = request_type()
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.report_error_event), "__call__"
+        type(client.transport.report_error_event), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
@@ -526,10 +530,15 @@ async def test_report_error_event_async(transport: str = "grpc_asyncio"):
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
 
-        assert args[0] == request
+        assert args[0] == report_errors_service.ReportErrorEventRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, report_errors_service.ReportErrorEventResponse)
+
+
+@pytest.mark.asyncio
+async def test_report_error_event_async_from_dict():
+    await test_report_error_event_async(request_type=dict)
 
 
 def test_report_error_event_field_headers():
@@ -542,7 +551,7 @@ def test_report_error_event_field_headers():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._transport.report_error_event), "__call__"
+        type(client.transport.report_error_event), "__call__"
     ) as call:
         call.return_value = report_errors_service.ReportErrorEventResponse()
 
@@ -573,7 +582,7 @@ async def test_report_error_event_field_headers_async():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.report_error_event), "__call__"
+        type(client.transport.report_error_event), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             report_errors_service.ReportErrorEventResponse()
@@ -598,7 +607,7 @@ def test_report_error_event_flattened():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._transport.report_error_event), "__call__"
+        type(client.transport.report_error_event), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = report_errors_service.ReportErrorEventResponse()
@@ -647,7 +656,7 @@ async def test_report_error_event_flattened_async():
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
-        type(client._client._transport.report_error_event), "__call__"
+        type(client.transport.report_error_event), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = report_errors_service.ReportErrorEventResponse()
@@ -730,7 +739,7 @@ def test_transport_instance():
         credentials=credentials.AnonymousCredentials(),
     )
     client = ReportErrorsServiceClient(transport=transport)
-    assert client._transport is transport
+    assert client.transport is transport
 
 
 def test_transport_get_channel():
@@ -766,7 +775,7 @@ def test_transport_adc(transport_class):
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
     client = ReportErrorsServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client._transport, transports.ReportErrorsServiceGrpcTransport,)
+    assert isinstance(client.transport, transports.ReportErrorsServiceGrpcTransport,)
 
 
 def test_report_errors_service_base_transport_error():
@@ -858,7 +867,7 @@ def test_report_errors_service_host_no_port():
             api_endpoint="clouderrorreporting.googleapis.com"
         ),
     )
-    assert client._transport._host == "clouderrorreporting.googleapis.com:443"
+    assert client.transport._host == "clouderrorreporting.googleapis.com:443"
 
 
 def test_report_errors_service_host_with_port():
@@ -868,7 +877,7 @@ def test_report_errors_service_host_with_port():
             api_endpoint="clouderrorreporting.googleapis.com:8000"
         ),
     )
-    assert client._transport._host == "clouderrorreporting.googleapis.com:8000"
+    assert client.transport._host == "clouderrorreporting.googleapis.com:8000"
 
 
 def test_report_errors_service_grpc_transport_channel():
@@ -880,6 +889,7 @@ def test_report_errors_service_grpc_transport_channel():
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
+    assert transport._ssl_channel_credentials == None
 
 
 def test_report_errors_service_grpc_asyncio_transport_channel():
@@ -891,6 +901,7 @@ def test_report_errors_service_grpc_asyncio_transport_channel():
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
+    assert transport._ssl_channel_credentials == None
 
 
 @pytest.mark.parametrize(
@@ -938,6 +949,7 @@ def test_report_errors_service_transport_channel_mtls_with_client_cert_source(
                 quota_project_id=None,
             )
             assert transport.grpc_channel == mock_grpc_channel
+            assert transport._ssl_channel_credentials == mock_ssl_cred
 
 
 @pytest.mark.parametrize(
@@ -978,6 +990,107 @@ def test_report_errors_service_transport_channel_mtls_with_adc(transport_class):
                 quota_project_id=None,
             )
             assert transport.grpc_channel == mock_grpc_channel
+
+
+def test_common_billing_account_path():
+    billing_account = "squid"
+
+    expected = "billingAccounts/{billing_account}".format(
+        billing_account=billing_account,
+    )
+    actual = ReportErrorsServiceClient.common_billing_account_path(billing_account)
+    assert expected == actual
+
+
+def test_parse_common_billing_account_path():
+    expected = {
+        "billing_account": "clam",
+    }
+    path = ReportErrorsServiceClient.common_billing_account_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReportErrorsServiceClient.parse_common_billing_account_path(path)
+    assert expected == actual
+
+
+def test_common_folder_path():
+    folder = "whelk"
+
+    expected = "folders/{folder}".format(folder=folder,)
+    actual = ReportErrorsServiceClient.common_folder_path(folder)
+    assert expected == actual
+
+
+def test_parse_common_folder_path():
+    expected = {
+        "folder": "octopus",
+    }
+    path = ReportErrorsServiceClient.common_folder_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReportErrorsServiceClient.parse_common_folder_path(path)
+    assert expected == actual
+
+
+def test_common_organization_path():
+    organization = "oyster"
+
+    expected = "organizations/{organization}".format(organization=organization,)
+    actual = ReportErrorsServiceClient.common_organization_path(organization)
+    assert expected == actual
+
+
+def test_parse_common_organization_path():
+    expected = {
+        "organization": "nudibranch",
+    }
+    path = ReportErrorsServiceClient.common_organization_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReportErrorsServiceClient.parse_common_organization_path(path)
+    assert expected == actual
+
+
+def test_common_project_path():
+    project = "cuttlefish"
+
+    expected = "projects/{project}".format(project=project,)
+    actual = ReportErrorsServiceClient.common_project_path(project)
+    assert expected == actual
+
+
+def test_parse_common_project_path():
+    expected = {
+        "project": "mussel",
+    }
+    path = ReportErrorsServiceClient.common_project_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReportErrorsServiceClient.parse_common_project_path(path)
+    assert expected == actual
+
+
+def test_common_location_path():
+    project = "winkle"
+    location = "nautilus"
+
+    expected = "projects/{project}/locations/{location}".format(
+        project=project, location=location,
+    )
+    actual = ReportErrorsServiceClient.common_location_path(project, location)
+    assert expected == actual
+
+
+def test_parse_common_location_path():
+    expected = {
+        "project": "scallop",
+        "location": "abalone",
+    }
+    path = ReportErrorsServiceClient.common_location_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReportErrorsServiceClient.parse_common_location_path(path)
+    assert expected == actual
 
 
 def test_client_withDEFAULT_CLIENT_INFO():
