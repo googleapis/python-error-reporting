@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-error-reporting.git",
-        "sha": "948daf01c733950aece7057fb8809e240b4696a4"
+        "sha": "4666066f08e1f49f1c612cbfaac6ad5a7ec7d98b"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "8d370db1a5c7f48f5baca6bf1ead32993398b0cd",
-        "internalRef": "331868116"
+        "sha": "4bc344a7c1b638ce317045c57d8009856aba81d3",
+        "internalRef": "329103436"
       }
     },
     {
