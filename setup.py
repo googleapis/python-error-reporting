@@ -21,7 +21,7 @@ import setuptools
 # Package metadata.
 
 name = "google-cloud-error-reporting"
-description = "Stackdriver Error Reporting API client library"
+description = "Error Reporting API client library"
 version = "1.0.0"
 # Should be one of:
 # 'Development Status :: 3 - Alpha'
@@ -29,7 +29,7 @@ version = "1.0.0"
 # 'Development Status :: 5 - Production/Stable'
 release_status = "Development Status :: 4 - Beta"
 dependencies = [
-    "google-cloud-logging>=1.14.0, <2.0dev",
+    "google-cloud-logging>=1.14.0, <2.1",
     "google-api-core[grpc] >= 1.22.0, < 2.0.0dev",
     "proto-plus >= 1.4.0",
     "libcst >= 0.2.5",
