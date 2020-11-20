@@ -4,6 +4,18 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+### [1.0.1](https://www.github.com/googleapis/python-error-reporting/compare/v1.0.0...v1.0.1) (2020-11-20)
+
+
+### Bug Fixes
+
+* changed import path for logging client ([#43](https://www.github.com/googleapis/python-error-reporting/issues/43)) ([a09449d](https://www.github.com/googleapis/python-error-reporting/commit/a09449def35077beb85782c34a61c8f172c2f018))
+
+
+### Documentation
+
+* removed stackdriver branding ([#44](https://www.github.com/googleapis/python-error-reporting/issues/44)) ([5eea8c4](https://www.github.com/googleapis/python-error-reporting/commit/5eea8c4f533a32d2b81b1b69e48d3bb47f1bc5b4))
+
 ## [1.0.0](https://www.github.com/googleapis/python-error-reporting/compare/v0.34.0...v1.0.0) (2020-08-28)
 
 
