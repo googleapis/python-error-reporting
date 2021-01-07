@@ -48,7 +48,7 @@ class ErrorGroup(proto.Message):
             the same kind of error occurs in different
             service contexts, it will receive the same group
             ID.
-        tracking_issues (Sequence[~.common.TrackingIssue]):
+        tracking_issues (Sequence[google.cloud.errorreporting_v1beta1.types.TrackingIssue]):
             Associated tracking issues.
     """
 
@@ -80,17 +80,17 @@ class ErrorEvent(proto.Message):
     system.
 
     Attributes:
-        event_time (~.timestamp.Timestamp):
+        event_time (google.protobuf.timestamp_pb2.Timestamp):
             Time when the event occurred as provided in
             the error report. If the report did not contain
             a timestamp, the time the error was received by
             the Error Reporting system is used.
-        service_context (~.common.ServiceContext):
+        service_context (google.cloud.errorreporting_v1beta1.types.ServiceContext):
             The ``ServiceContext`` for which this error was reported.
         message (str):
             The stack trace that was reported or logged
             by the service.
-        context (~.common.ErrorContext):
+        context (google.cloud.errorreporting_v1beta1.types.ErrorContext):
             Data about the context in which the error
             occurred.
     """
@@ -149,7 +149,7 @@ class ErrorContext(proto.Message):
     Engine logs.
 
     Attributes:
-        http_request (~.common.HttpRequestContext):
+        http_request (google.cloud.errorreporting_v1beta1.types.HttpRequestContext):
             The HTTP request which was processed when the
             error was triggered.
         user (str):
@@ -160,7 +160,7 @@ class ErrorContext(proto.Message):
             this case the Error Reporting system will use other data,
             such as remote IP address, to distinguish affected users.
             See ``affected_users_count`` in ``ErrorGroupStats``.
-        report_location (~.common.SourceLocation):
+        report_location (google.cloud.errorreporting_v1beta1.types.SourceLocation):
             The location in the source code where the
             decision was made to report the error, usually
             the place where it was logged. For a logged

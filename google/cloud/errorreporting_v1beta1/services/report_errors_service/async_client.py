@@ -72,6 +72,7 @@ class ReportErrorsServiceAsyncClient:
         ReportErrorsServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = ReportErrorsServiceClient.from_service_account_info
     from_service_account_file = ReportErrorsServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -157,7 +158,7 @@ class ReportErrorsServiceAsyncClient:
         ``POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456``
 
         Args:
-            request (:class:`~.report_errors_service.ReportErrorEventRequest`):
+            request (:class:`google.cloud.errorreporting_v1beta1.types.ReportErrorEventRequest`):
                 The request object. A request for reporting an
                 individual error event.
             project_name (:class:`str`):
@@ -166,12 +167,14 @@ class ReportErrorsServiceAsyncClient:
                 Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
                 Example: ``projects/my-project-123``.
+
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            event (:class:`~.report_errors_service.ReportedErrorEvent`):
+            event (:class:`google.cloud.errorreporting_v1beta1.types.ReportedErrorEvent`):
                 Required. The error event to be
                 reported.
+
                 This corresponds to the ``event`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -183,7 +186,7 @@ class ReportErrorsServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.report_errors_service.ReportErrorEventResponse:
+            google.cloud.errorreporting_v1beta1.types.ReportErrorEventResponse:
                 Response for reporting an individual
                 error event. Data may be added to this
                 message in the future.

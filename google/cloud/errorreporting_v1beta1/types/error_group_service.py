@@ -47,7 +47,7 @@ class UpdateGroupRequest(proto.Message):
     r"""A request to replace the existing data for the given group.
 
     Attributes:
-        group (~.common.ErrorGroup):
+        group (google.cloud.errorreporting_v1beta1.types.ErrorGroup):
             Required. The group which replaces the
             resource on the server.
     """
