@@ -18,7 +18,6 @@
 import proto  # type: ignore
 
 
-from google.appengine.logging.v1 import request_log_pb2 as request_log  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
@@ -184,10 +183,6 @@ class ErrorContext(proto.Message):
             exception this would be the source line where
             the exception is logged, usually close to the
             place where it was caught.
-        source_references (Sequence[google.appengine.logging.v1.request_log_pb2.SourceReference]):
-            Source code that was used to build the
-            executable which has caused the given error
-            message.
     """
 
     http_request = proto.Field(proto.MESSAGE, number=1, message="HttpRequestContext",)
@@ -195,10 +190,6 @@ class ErrorContext(proto.Message):
     user = proto.Field(proto.STRING, number=2)
 
     report_location = proto.Field(proto.MESSAGE, number=3, message="SourceLocation",)
-
-    source_references = proto.RepeatedField(
-        proto.MESSAGE, number=4, message=request_log.SourceReference,
-    )
 
 
 class HttpRequestContext(proto.Message):
