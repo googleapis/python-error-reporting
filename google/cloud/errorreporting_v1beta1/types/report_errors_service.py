@@ -42,7 +42,7 @@ class ReportErrorEventRequest(proto.Message):
             Platform project
             ID <https://support.google.com/cloud/answer/6158840>`__.
             Example: ``projects/my-project-123``.
-        event (google.cloud.errorreporting_v1beta1.types.ReportedErrorEvent):
+        event (~.report_errors_service.ReportedErrorEvent):
             Required. The error event to be reported.
     """
 
@@ -62,12 +62,12 @@ class ReportedErrorEvent(proto.Message):
     system.
 
     Attributes:
-        event_time (google.protobuf.timestamp_pb2.Timestamp):
+        event_time (~.timestamp.Timestamp):
             Optional. Time when the event occurred.
             If not provided, the time when the event was
             received by the Error Reporting system will be
             used.
-        service_context (google.cloud.errorreporting_v1beta1.types.ServiceContext):
+        service_context (~.common.ServiceContext):
             Required. The service context in which this
             error has occurred.
         message (str):
@@ -96,7 +96,7 @@ class ReportedErrorEvent(proto.Message):
                ```(string)$exception`` <http://php.net/manual/en/exception.tostring.php>`__.
             -  **Go**: Must be the return value of
                ```runtime.Stack()`` <https://golang.org/pkg/runtime/debug/#Stack>`__.
-        context (google.cloud.errorreporting_v1beta1.types.ErrorContext):
+        context (~.common.ErrorContext):
             Optional. A description of the context in
             which the error occurred.
     """

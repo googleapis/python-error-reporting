@@ -81,7 +81,6 @@ class ErrorStatsServiceAsyncClient:
         ErrorStatsServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = ErrorStatsServiceClient.from_service_account_info
     from_service_account_file = ErrorStatsServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -159,7 +158,7 @@ class ErrorStatsServiceAsyncClient:
         r"""Lists the specified groups.
 
         Args:
-            request (:class:`google.cloud.errorreporting_v1beta1.types.ListGroupStatsRequest`):
+            request (:class:`~.error_stats_service.ListGroupStatsRequest`):
                 The request object. Specifies a set of `ErrorGroupStats`
                 to return.
             project_name (:class:`str`):
@@ -171,11 +170,10 @@ class ErrorStatsServiceAsyncClient:
 
                 Example: <code>projects/my-
                 project-123</code>.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            time_range (:class:`google.cloud.errorreporting_v1beta1.types.QueryTimeRange`):
+            time_range (:class:`~.error_stats_service.QueryTimeRange`):
                 Optional. List data for the given time range. If not
                 set, a default time range is used. The field
                 time_range_begin in the response will specify the
@@ -184,7 +182,6 @@ class ErrorStatsServiceAsyncClient:
                 unless the request contains an explicit group_id list.
                 If a group_id list is given, also ErrorGroupStats with
                 zero occurrences are returned.
-
                 This corresponds to the ``time_range`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -196,7 +193,7 @@ class ErrorStatsServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.services.error_stats_service.pagers.ListGroupStatsAsyncPager:
+            ~.pagers.ListGroupStatsAsyncPager:
                 Contains a set of requested error
                 group stats.
                 Iterating over this object will yield
@@ -265,7 +262,7 @@ class ErrorStatsServiceAsyncClient:
         r"""Lists the specified events.
 
         Args:
-            request (:class:`google.cloud.errorreporting_v1beta1.types.ListEventsRequest`):
+            request (:class:`~.error_stats_service.ListEventsRequest`):
                 The request object. Specifies a set of error events to
                 return.
             project_name (:class:`str`):
@@ -274,14 +271,12 @@ class ErrorStatsServiceAsyncClient:
                 Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
                 Example: ``projects/my-project-123``.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
             group_id (:class:`str`):
                 Required. The group for which events
                 shall be returned.
-
                 This corresponds to the ``group_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -293,7 +288,7 @@ class ErrorStatsServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.services.error_stats_service.pagers.ListEventsAsyncPager:
+            ~.pagers.ListEventsAsyncPager:
                 Contains a set of requested error
                 events.
                 Iterating over this object will yield
@@ -361,7 +356,7 @@ class ErrorStatsServiceAsyncClient:
         r"""Deletes all error events of a given project.
 
         Args:
-            request (:class:`google.cloud.errorreporting_v1beta1.types.DeleteEventsRequest`):
+            request (:class:`~.error_stats_service.DeleteEventsRequest`):
                 The request object. Deletes all events in the project.
             project_name (:class:`str`):
                 Required. The resource name of the Google Cloud Platform
@@ -369,7 +364,6 @@ class ErrorStatsServiceAsyncClient:
                 Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
                 Example: ``projects/my-project-123``.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -381,7 +375,7 @@ class ErrorStatsServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.types.DeleteEventsResponse:
+            ~.error_stats_service.DeleteEventsResponse:
                 Response message for deleting error
                 events.
 

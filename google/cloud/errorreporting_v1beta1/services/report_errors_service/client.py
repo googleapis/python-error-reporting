@@ -112,22 +112,6 @@ class ReportErrorsServiceClient(metaclass=ReportErrorsServiceClientMeta):
     )
 
     @classmethod
-    def from_service_account_info(cls, info: dict, *args, **kwargs):
-        """Creates an instance of this client using the provided credentials info.
-
-        Args:
-            info (dict): The service account private key info.
-            args: Additional arguments to pass to the constructor.
-            kwargs: Additional arguments to pass to the constructor.
-
-        Returns:
-            ReportErrorsServiceClient: The constructed client.
-        """
-        credentials = service_account.Credentials.from_service_account_info(info)
-        kwargs["credentials"] = credentials
-        return cls(*args, **kwargs)
-
-    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -139,7 +123,7 @@ class ReportErrorsServiceClient(metaclass=ReportErrorsServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            ReportErrorsServiceClient: The constructed client.
+            {@api.name}: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -231,10 +215,10 @@ class ReportErrorsServiceClient(metaclass=ReportErrorsServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ReportErrorsServiceTransport]): The
+            transport (Union[str, ~.ReportErrorsServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (google.api_core.client_options.ClientOptions): Custom options for the
+            client_options (client_options_lib.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -352,23 +336,21 @@ class ReportErrorsServiceClient(metaclass=ReportErrorsServiceClientMeta):
         ``POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456``
 
         Args:
-            request (google.cloud.errorreporting_v1beta1.types.ReportErrorEventRequest):
+            request (:class:`~.report_errors_service.ReportErrorEventRequest`):
                 The request object. A request for reporting an
                 individual error event.
-            project_name (str):
+            project_name (:class:`str`):
                 Required. The resource name of the Google Cloud Platform
                 project. Written as ``projects/`` plus the `Google Cloud
                 Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
                 Example: ``projects/my-project-123``.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            event (google.cloud.errorreporting_v1beta1.types.ReportedErrorEvent):
+            event (:class:`~.report_errors_service.ReportedErrorEvent`):
                 Required. The error event to be
                 reported.
-
                 This corresponds to the ``event`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -380,7 +362,7 @@ class ReportErrorsServiceClient(metaclass=ReportErrorsServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.types.ReportErrorEventResponse:
+            ~.report_errors_service.ReportErrorEventResponse:
                 Response for reporting an individual
                 error event. Data may be added to this
                 message in the future.

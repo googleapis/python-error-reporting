@@ -48,7 +48,7 @@ class ErrorGroup(proto.Message):
             the same kind of error occurs in different
             service contexts, it will receive the same group
             ID.
-        tracking_issues (Sequence[google.cloud.errorreporting_v1beta1.types.TrackingIssue]):
+        tracking_issues (Sequence[~.common.TrackingIssue]):
             Associated tracking issues.
     """
 
@@ -80,17 +80,17 @@ class ErrorEvent(proto.Message):
     system.
 
     Attributes:
-        event_time (google.protobuf.timestamp_pb2.Timestamp):
+        event_time (~.timestamp.Timestamp):
             Time when the event occurred as provided in
             the error report. If the report did not contain
             a timestamp, the time the error was received by
             the Error Reporting system is used.
-        service_context (google.cloud.errorreporting_v1beta1.types.ServiceContext):
+        service_context (~.common.ServiceContext):
             The ``ServiceContext`` for which this error was reported.
         message (str):
             The stack trace that was reported or logged
             by the service.
-        context (google.cloud.errorreporting_v1beta1.types.ErrorContext):
+        context (~.common.ErrorContext):
             Data about the context in which the error
             occurred.
     """
@@ -149,7 +149,7 @@ class ErrorContext(proto.Message):
     Engine logs.
 
     Attributes:
-        http_request (google.cloud.errorreporting_v1beta1.types.HttpRequestContext):
+        http_request (~.common.HttpRequestContext):
             The HTTP request which was processed when the
             error was triggered.
         user (str):
@@ -160,7 +160,7 @@ class ErrorContext(proto.Message):
             this case the Error Reporting system will use other data,
             such as remote IP address, to distinguish affected users.
             See ``affected_users_count`` in ``ErrorGroupStats``.
-        report_location (google.cloud.errorreporting_v1beta1.types.SourceLocation):
+        report_location (~.common.SourceLocation):
             The location in the source code where the
             decision was made to report the error, usually
             the place where it was logged. For a logged

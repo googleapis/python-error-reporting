@@ -116,22 +116,6 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
     )
 
     @classmethod
-    def from_service_account_info(cls, info: dict, *args, **kwargs):
-        """Creates an instance of this client using the provided credentials info.
-
-        Args:
-            info (dict): The service account private key info.
-            args: Additional arguments to pass to the constructor.
-            kwargs: Additional arguments to pass to the constructor.
-
-        Returns:
-            ErrorStatsServiceClient: The constructed client.
-        """
-        credentials = service_account.Credentials.from_service_account_info(info)
-        kwargs["credentials"] = credentials
-        return cls(*args, **kwargs)
-
-    @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
         """Creates an instance of this client using the provided credentials
         file.
@@ -143,7 +127,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
             kwargs: Additional arguments to pass to the constructor.
 
         Returns:
-            ErrorStatsServiceClient: The constructed client.
+            {@api.name}: The constructed client.
         """
         credentials = service_account.Credentials.from_service_account_file(filename)
         kwargs["credentials"] = credentials
@@ -246,10 +230,10 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 credentials identify the application to the service; if none
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
-            transport (Union[str, ErrorStatsServiceTransport]): The
+            transport (Union[str, ~.ErrorStatsServiceTransport]): The
                 transport to use. If set to None, a transport is chosen
                 automatically.
-            client_options (google.api_core.client_options.ClientOptions): Custom options for the
+            client_options (client_options_lib.ClientOptions): Custom options for the
                 client. It won't take effect if a ``transport`` instance is provided.
                 (1) The ``api_endpoint`` property can be used to override the
                 default endpoint provided by the client. GOOGLE_API_USE_MTLS_ENDPOINT
@@ -360,10 +344,10 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
         r"""Lists the specified groups.
 
         Args:
-            request (google.cloud.errorreporting_v1beta1.types.ListGroupStatsRequest):
+            request (:class:`~.error_stats_service.ListGroupStatsRequest`):
                 The request object. Specifies a set of `ErrorGroupStats`
                 to return.
-            project_name (str):
+            project_name (:class:`str`):
                 Required. The resource name of the
                 Google Cloud Platform project. Written
                 as <code>projects/</code> plus the <a
@@ -372,11 +356,10 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
                 Example: <code>projects/my-
                 project-123</code>.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            time_range (google.cloud.errorreporting_v1beta1.types.QueryTimeRange):
+            time_range (:class:`~.error_stats_service.QueryTimeRange`):
                 Optional. List data for the given time range. If not
                 set, a default time range is used. The field
                 time_range_begin in the response will specify the
@@ -385,7 +368,6 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 unless the request contains an explicit group_id list.
                 If a group_id list is given, also ErrorGroupStats with
                 zero occurrences are returned.
-
                 This corresponds to the ``time_range`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -397,7 +379,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.services.error_stats_service.pagers.ListGroupStatsPager:
+            ~.pagers.ListGroupStatsPager:
                 Contains a set of requested error
                 group stats.
                 Iterating over this object will yield
@@ -467,23 +449,21 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
         r"""Lists the specified events.
 
         Args:
-            request (google.cloud.errorreporting_v1beta1.types.ListEventsRequest):
+            request (:class:`~.error_stats_service.ListEventsRequest`):
                 The request object. Specifies a set of error events to
                 return.
-            project_name (str):
+            project_name (:class:`str`):
                 Required. The resource name of the Google Cloud Platform
                 project. Written as ``projects/`` plus the `Google Cloud
                 Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
                 Example: ``projects/my-project-123``.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            group_id (str):
+            group_id (:class:`str`):
                 Required. The group for which events
                 shall be returned.
-
                 This corresponds to the ``group_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -495,7 +475,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.services.error_stats_service.pagers.ListEventsPager:
+            ~.pagers.ListEventsPager:
                 Contains a set of requested error
                 events.
                 Iterating over this object will yield
@@ -564,15 +544,14 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
         r"""Deletes all error events of a given project.
 
         Args:
-            request (google.cloud.errorreporting_v1beta1.types.DeleteEventsRequest):
+            request (:class:`~.error_stats_service.DeleteEventsRequest`):
                 The request object. Deletes all events in the project.
-            project_name (str):
+            project_name (:class:`str`):
                 Required. The resource name of the Google Cloud Platform
                 project. Written as ``projects/`` plus the `Google Cloud
                 Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
                 Example: ``projects/my-project-123``.
-
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -584,7 +563,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.types.DeleteEventsResponse:
+            ~.error_stats_service.DeleteEventsResponse:
                 Response message for deleting error
                 events.
 

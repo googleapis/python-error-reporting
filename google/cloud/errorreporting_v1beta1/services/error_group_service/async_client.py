@@ -78,7 +78,6 @@ class ErrorGroupServiceAsyncClient:
         ErrorGroupServiceClient.parse_common_location_path
     )
 
-    from_service_account_info = ErrorGroupServiceClient.from_service_account_info
     from_service_account_file = ErrorGroupServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -155,7 +154,7 @@ class ErrorGroupServiceAsyncClient:
         r"""Get the specified group.
 
         Args:
-            request (:class:`google.cloud.errorreporting_v1beta1.types.GetGroupRequest`):
+            request (:class:`~.error_group_service.GetGroupRequest`):
                 The request object. A request to return an individual
                 group.
             group_name (:class:`str`):
@@ -165,7 +164,6 @@ class ErrorGroupServiceAsyncClient:
                 to return a list of groups belonging to this project.
 
                 Example: ``projects/my-project-123/groups/my-group``
-
                 This corresponds to the ``group_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -177,7 +175,7 @@ class ErrorGroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.types.ErrorGroup:
+            ~.common.ErrorGroup:
                 Description of a group of similar
                 error events.
 
@@ -235,13 +233,12 @@ class ErrorGroupServiceAsyncClient:
         Fails if the group does not exist.
 
         Args:
-            request (:class:`google.cloud.errorreporting_v1beta1.types.UpdateGroupRequest`):
+            request (:class:`~.error_group_service.UpdateGroupRequest`):
                 The request object. A request to replace the existing
                 data for the given group.
-            group (:class:`google.cloud.errorreporting_v1beta1.types.ErrorGroup`):
+            group (:class:`~.common.ErrorGroup`):
                 Required. The group which replaces
                 the resource on the server.
-
                 This corresponds to the ``group`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -253,7 +250,7 @@ class ErrorGroupServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            google.cloud.errorreporting_v1beta1.types.ErrorGroup:
+            ~.common.ErrorGroup:
                 Description of a group of similar
                 error events.
 
