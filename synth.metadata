@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "2ccf8f460800e98884d1aa4ba61e344ad4cd5d04",
-        "internalRef": "348857882"
+        "sha": "520682435235d9c503983a360a2090025aa47cd1",
+        "internalRef": "350246057"
       }
     },
     {
@@ -42,6 +42,7 @@
     }
   ],
   "generatedFiles": [
+    ".coveragerc",
     ".flake8",
     ".github/CONTRIBUTING.md",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -95,6 +96,9 @@
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/conf.py",
+    "docs/errorreporting_v1beta1/error_group_service.rst",
+    "docs/errorreporting_v1beta1/error_stats_service.rst",
+    "docs/errorreporting_v1beta1/report_errors_service.rst",
     "docs/errorreporting_v1beta1/services.rst",
     "docs/errorreporting_v1beta1/types.rst",
     "docs/multiprocessing.rst",
