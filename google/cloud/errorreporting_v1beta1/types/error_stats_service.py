@@ -65,13 +65,13 @@ class ListGroupStatsRequest(proto.Message):
 
     Attributes:
         project_name (str):
-            Required. The resource name of the Google
-            Cloud Platform project. Written as
-            <code>projects/</code> plus the <a
-            href="https://support.google.com/cloud/answer/6158840">Google
-            Cloud Platform project ID</a>.
+            Required. The resource name of the Google Cloud Platform
+            project. Written as ``projects/{projectID}`` or
+            ``projects/{projectNumber}``, where ``{projectID}`` and
+            ``{projectNumber}`` can be found in the `Google Cloud
+            Console <https://support.google.com/cloud/answer/6158840>`__.
 
-            Example: <code>projects/my-project-123</code>.
+            Examples: ``projects/my-project-123``, ``projects/5551234``.
         group_id (Sequence[str]):
             Optional. List all
             <code>ErrorGroupStats</code> with these IDs.
@@ -279,9 +279,10 @@ class ListEventsRequest(proto.Message):
     Attributes:
         project_name (str):
             Required. The resource name of the Google Cloud Platform
-            project. Written as ``projects/`` plus the `Google Cloud
-            Platform project
+            project. Written as ``projects/{projectID}``, where
+            ``{projectID}`` is the `Google Cloud Platform project
             ID <https://support.google.com/cloud/answer/6158840>`__.
+
             Example: ``projects/my-project-123``.
         group_id (str):
             Required. The group for which events shall be
@@ -404,9 +405,10 @@ class DeleteEventsRequest(proto.Message):
     Attributes:
         project_name (str):
             Required. The resource name of the Google Cloud Platform
-            project. Written as ``projects/`` plus the `Google Cloud
-            Platform project
+            project. Written as ``projects/{projectID}``, where
+            ``{projectID}`` is the `Google Cloud Platform project
             ID <https://support.google.com/cloud/answer/6158840>`__.
+
             Example: ``projects/my-project-123``.
     """
 

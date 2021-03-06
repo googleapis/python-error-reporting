@@ -22,6 +22,7 @@ from .types.common import ErrorContext
 from .types.common import ErrorEvent
 from .types.common import ErrorGroup
 from .types.common import HttpRequestContext
+from .types.common import ResolutionStatus
 from .types.common import ServiceContext
 from .types.common import SourceLocation
 from .types.common import TrackingIssue
@@ -64,6 +65,7 @@ __all__ = (
     "ReportErrorEventResponse",
     "ReportErrorsServiceClient",
     "ReportedErrorEvent",
+    "ResolutionStatus",
     "ServiceContext",
     "ServiceContextFilter",
     "SourceLocation",

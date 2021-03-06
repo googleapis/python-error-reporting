@@ -18,12 +18,14 @@
 import proto  # type: ignore
 
 
+from google.appengine.logging.v1 import request_log_pb2 as request_log  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
     package="google.devtools.clouderrorreporting.v1beta1",
     manifest={
+        "ResolutionStatus",
         "ErrorGroup",
         "TrackingIssue",
         "ErrorEvent",
@@ -35,6 +37,15 @@ __protobuf__ = proto.module(
 )
 
 
+class ResolutionStatus(proto.Enum):
+    r"""Resolution status of an error group."""
+    RESOLUTION_STATUS_UNSPECIFIED = 0
+    OPEN = 1
+    ACKNOWLEDGED = 2
+    RESOLVED = 3
+    MUTED = 4
+
+
 class ErrorGroup(proto.Message):
     r"""Description of a group of similar error events.
 
@@ -42,7 +53,7 @@ class ErrorGroup(proto.Message):
         name (str):
             The group resource name.
             Example: <code>projects/my-
-            project-123/groups/my-groupid</code>
+            project-123/groups/CNSgkpnppqKCUw</code>
         group_id (str):
             Group IDs are unique for a given project. If
             the same kind of error occurs in different
@@ -50,6 +61,10 @@ class ErrorGroup(proto.Message):
             ID.
         tracking_issues (Sequence[google.cloud.errorreporting_v1beta1.types.TrackingIssue]):
             Associated tracking issues.
+        resolution_status (google.cloud.errorreporting_v1beta1.types.ResolutionStatus):
+            Error group's resolution status.
+            An unspecified resolution status will be
+            interpreted as OPEN
     """
 
     name = proto.Field(proto.STRING, number=1)
@@ -59,6 +74,8 @@ class ErrorGroup(proto.Message):
     tracking_issues = proto.RepeatedField(
         proto.MESSAGE, number=3, message="TrackingIssue",
     )
+
+    resolution_status = proto.Field(proto.ENUM, number=5, enum="ResolutionStatus",)
 
 
 class TrackingIssue(proto.Message):
@@ -167,6 +184,10 @@ class ErrorContext(proto.Message):
             exception this would be the source line where
             the exception is logged, usually close to the
             place where it was caught.
+        source_references (Sequence[google.appengine.logging.v1.request_log_pb2.SourceReference]):
+            Source code that was used to build the
+            executable which has caused the given error
+            message.
     """
 
     http_request = proto.Field(proto.MESSAGE, number=1, message="HttpRequestContext",)
@@ -174,6 +195,10 @@ class ErrorContext(proto.Message):
     user = proto.Field(proto.STRING, number=2)
 
     report_location = proto.Field(proto.MESSAGE, number=3, message="SourceLocation",)
+
+    source_references = proto.RepeatedField(
+        proto.MESSAGE, number=4, message=request_log.SourceReference,
+    )
 
 
 class HttpRequestContext(proto.Message):

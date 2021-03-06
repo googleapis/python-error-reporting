@@ -38,10 +38,11 @@ class ReportErrorEventRequest(proto.Message):
     Attributes:
         project_name (str):
             Required. The resource name of the Google Cloud Platform
-            project. Written as ``projects/`` plus the `Google Cloud
-            Platform project
+            project. Written as ``projects/{projectId}``, where
+            ``{projectId}`` is the `Google Cloud Platform project
             ID <https://support.google.com/cloud/answer/6158840>`__.
-            Example: ``projects/my-project-123``.
+
+            Example: // ``projects/my-project-123``.
         event (google.cloud.errorreporting_v1beta1.types.ReportedErrorEvent):
             Required. The error event to be reported.
     """

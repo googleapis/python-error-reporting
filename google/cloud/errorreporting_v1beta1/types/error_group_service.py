@@ -32,7 +32,7 @@ class GetGroupRequest(proto.Message):
 
     Attributes:
         group_name (str):
-            The group resource name. Written as
+            Required. The group resource name. Written as
             ``projects/{projectID}/groups/{group_name}``. Call
             ```groupStats.list`` <https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list>`__
             to return a list of groups belonging to this project.

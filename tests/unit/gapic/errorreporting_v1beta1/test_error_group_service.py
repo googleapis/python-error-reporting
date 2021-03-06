@@ -466,7 +466,9 @@ def test_get_group(
     with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup(
-            name="name_value", group_id="group_id_value",
+            name="name_value",
+            group_id="group_id_value",
+            resolution_status=common.ResolutionStatus.OPEN,
         )
 
         response = client.get_group(request)
@@ -484,6 +486,8 @@ def test_get_group(
     assert response.name == "name_value"
 
     assert response.group_id == "group_id_value"
+
+    assert response.resolution_status == common.ResolutionStatus.OPEN
 
 
 def test_get_group_from_dict():
@@ -506,7 +510,11 @@ async def test_get_group_async(
     with mock.patch.object(type(client.transport.get_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            common.ErrorGroup(name="name_value", group_id="group_id_value",)
+            common.ErrorGroup(
+                name="name_value",
+                group_id="group_id_value",
+                resolution_status=common.ResolutionStatus.OPEN,
+            )
         )
 
         response = await client.get_group(request)
@@ -523,6 +531,8 @@ async def test_get_group_async(
     assert response.name == "name_value"
 
     assert response.group_id == "group_id_value"
+
+    assert response.resolution_status == common.ResolutionStatus.OPEN
 
 
 @pytest.mark.asyncio
@@ -665,7 +675,9 @@ def test_update_group(
     with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = common.ErrorGroup(
-            name="name_value", group_id="group_id_value",
+            name="name_value",
+            group_id="group_id_value",
+            resolution_status=common.ResolutionStatus.OPEN,
         )
 
         response = client.update_group(request)
@@ -683,6 +695,8 @@ def test_update_group(
     assert response.name == "name_value"
 
     assert response.group_id == "group_id_value"
+
+    assert response.resolution_status == common.ResolutionStatus.OPEN
 
 
 def test_update_group_from_dict():
@@ -705,7 +719,11 @@ async def test_update_group_async(
     with mock.patch.object(type(client.transport.update_group), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            common.ErrorGroup(name="name_value", group_id="group_id_value",)
+            common.ErrorGroup(
+                name="name_value",
+                group_id="group_id_value",
+                resolution_status=common.ResolutionStatus.OPEN,
+            )
         )
 
         response = await client.update_group(request)
@@ -722,6 +740,8 @@ async def test_update_group_async(
     assert response.name == "name_value"
 
     assert response.group_id == "group_id_value"
+
+    assert response.resolution_status == common.ResolutionStatus.OPEN
 
 
 @pytest.mark.asyncio

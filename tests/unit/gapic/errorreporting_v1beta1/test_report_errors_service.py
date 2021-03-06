@@ -30,6 +30,7 @@ from google.api_core import exceptions
 from google.api_core import gapic_v1
 from google.api_core import grpc_helpers
 from google.api_core import grpc_helpers_async
+from google.appengine.logging.v1 import request_log_pb2 as request_log  # type: ignore
 from google.auth import credentials
 from google.auth.exceptions import MutualTLSChannelError
 from google.cloud.errorreporting_v1beta1.services.report_errors_service import (

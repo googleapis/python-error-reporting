@@ -360,14 +360,14 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 The request object. Specifies a set of `ErrorGroupStats`
                 to return.
             project_name (str):
-                Required. The resource name of the
-                Google Cloud Platform project. Written
-                as <code>projects/</code> plus the <a
-                href="https://support.google.com/cloud/answer/6158840">Google
-                Cloud Platform project ID</a>.
+                Required. The resource name of the Google Cloud Platform
+                project. Written as ``projects/{projectID}`` or
+                ``projects/{projectNumber}``, where ``{projectID}`` and
+                ``{projectNumber}`` can be found in the `Google Cloud
+                Console <https://support.google.com/cloud/answer/6158840>`__.
 
-                Example: <code>projects/my-
-                project-123</code>.
+                Examples: ``projects/my-project-123``,
+                ``projects/5551234``.
 
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -468,9 +468,10 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 return.
             project_name (str):
                 Required. The resource name of the Google Cloud Platform
-                project. Written as ``projects/`` plus the `Google Cloud
-                Platform project
+                project. Written as ``projects/{projectID}``, where
+                ``{projectID}`` is the `Google Cloud Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
+
                 Example: ``projects/my-project-123``.
 
                 This corresponds to the ``project_name`` field
@@ -564,9 +565,10 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
                 The request object. Deletes all events in the project.
             project_name (str):
                 Required. The resource name of the Google Cloud Platform
-                project. Written as ``projects/`` plus the `Google Cloud
-                Platform project
+                project. Written as ``projects/{projectID}``, where
+                ``{projectID}`` is the `Google Cloud Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
+
                 Example: ``projects/my-project-123``.
 
                 This corresponds to the ``project_name`` field

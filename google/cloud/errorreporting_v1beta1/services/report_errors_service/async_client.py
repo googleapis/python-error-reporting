@@ -148,14 +148,22 @@ class ReportErrorsServiceAsyncClient:
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> report_errors_service.ReportErrorEventResponse:
-        r"""Report an individual error event.
+        r"""Report an individual error event and record the event to a log.
 
         This endpoint accepts **either** an OAuth token, **or** an `API
         key <https://support.google.com/cloud/answer/6158862>`__ for
         authentication. To use an API key, append it to the URL as the
         value of a ``key`` parameter. For example:
 
-        ``POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456``
+        ``POST https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456``
+
+        **Note:** `Error Reporting </error-reporting>`__ is a global
+        service built on Cloud Logging and doesn't analyze logs stored
+        in regional log buckets or logs routed to other Google Cloud
+        projects.
+
+        For more information, see `Using Error Reporting with
+        regionalized logs </error-reporting/docs/regionalization>`__.
 
         Args:
             request (:class:`google.cloud.errorreporting_v1beta1.types.ReportErrorEventRequest`):
@@ -163,10 +171,11 @@ class ReportErrorsServiceAsyncClient:
                 individual error event.
             project_name (:class:`str`):
                 Required. The resource name of the Google Cloud Platform
-                project. Written as ``projects/`` plus the `Google Cloud
-                Platform project
+                project. Written as ``projects/{projectId}``, where
+                ``{projectId}`` is the `Google Cloud Platform project
                 ID <https://support.google.com/cloud/answer/6158840>`__.
-                Example: ``projects/my-project-123``.
+
+                Example: // ``projects/my-project-123``.
 
                 This corresponds to the ``project_name`` field
                 on the ``request`` instance; if ``request`` is provided, this
