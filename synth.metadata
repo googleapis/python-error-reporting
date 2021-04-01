@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "72326861be446be27d53af95c87e6e313367c371",
-        "internalRef": "362934100"
+        "sha": "dd7c51a272f05456784067c0e8b6520a50503254",
+        "internalRef": "363600693"
       }
     },
     {
@@ -93,7 +93,6 @@
     "CONTRIBUTING.rst",
     "LICENSE",
     "MANIFEST.in",
-    "devtools-clouderrorreporting-v1beta1-py.tar.gz",
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/conf.py",
