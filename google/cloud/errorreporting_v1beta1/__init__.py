@@ -52,8 +52,8 @@ __all__ = (
     "ErrorEvent",
     "ErrorGroup",
     "ErrorGroupOrder",
+    "ErrorGroupServiceClient",
     "ErrorGroupStats",
-    "ErrorStatsServiceClient",
     "GetGroupRequest",
     "HttpRequestContext",
     "ListEventsRequest",
@@ -73,5 +73,5 @@ __all__ = (
     "TimedCountAlignment",
     "TrackingIssue",
     "UpdateGroupRequest",
-    "ErrorGroupServiceClient",
+    "ErrorStatsServiceClient",
 )
