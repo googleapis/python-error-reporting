@@ -4,6 +4,19 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+### [1.1.3](https://www.github.com/googleapis/python-error-reporting/compare/v1.1.2...v1.1.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* **deps:** add packaging requirement ([#124](https://www.github.com/googleapis/python-error-reporting/issues/124)) ([ed36389](https://www.github.com/googleapis/python-error-reporting/commit/ed3638946f8829c4d2b379785e38cc2a2228c688))
+* **deps:** widen version range on google-cloud-logging ([#133](https://www.github.com/googleapis/python-error-reporting/issues/133)) ([c5e87bb](https://www.github.com/googleapis/python-error-reporting/commit/c5e87bb8c177688833ca9524daa4e6229875627d))
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-error-reporting/issues/1127)) ([#137](https://www.github.com/googleapis/python-error-reporting/issues/137)) ([0ca7d43](https://www.github.com/googleapis/python-error-reporting/commit/0ca7d4385de86e7ff462322807a717345774c017))
+
 ### [1.1.2](https://www.github.com/googleapis/python-error-reporting/compare/v1.1.1...v1.1.2) (2021-04-05)
 
 
