@@ -55,6 +55,12 @@ s.replace(
 )
 
 s.replace(
+  "README.rst",
+  "google-cloud-python/blob/main/README.rst",
+  "google-cloud-python/blob/master/README.rst"
+)
+
+s.replace(
   "CONTRIBUTING.rst",
   "kubernetes/community/blob/main",
   "kubernetes/community/blob/master"
@@ -74,12 +80,6 @@ s.replace(
 
 s.replace(
   ".kokoro/*",
-  "master",
-  "main"
-)
-
-s.replace(
-  "samples/*",
   "master",
   "main"
 )
