@@ -12,5 +12,5 @@
     "api_id": "clouderrorreporting.googleapis.com",
     "requires_billing": false,
     "codeowner_team": "@googleapis/api-logging",
-    "default_version": ""
+    "default_version": "v1beta1"
 }
