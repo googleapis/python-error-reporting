@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+### [1.2.4](https://www.github.com/googleapis/python-error-reporting/compare/v1.2.3...v1.2.4) (2021-10-07)
+
+
+### Bug Fixes
+
+* improper types in pagers generation ([18c93a9](https://www.github.com/googleapis/python-error-reporting/commit/18c93a99a967b6d86e7409f4e26ff56f1c9788de))
+
 ### [1.2.3](https://www.github.com/googleapis/python-error-reporting/compare/v1.2.2...v1.2.3) (2021-09-24)
 
 
