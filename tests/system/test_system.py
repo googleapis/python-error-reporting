@@ -15,7 +15,6 @@
 import functools
 import operator
 import unittest
-import os
 import mock
 
 from google.cloud import error_reporting
