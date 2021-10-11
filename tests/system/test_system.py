@@ -114,7 +114,6 @@ def _get_error_count(class_name, client):
 
 
 class TestErrorReporting(unittest.TestCase):
-
     def test_report_exception(self):
         # Get a class name unique to this test case.
         class_name = "RuntimeError" + unique_resource_id("_")
@@ -132,7 +131,7 @@ class TestErrorReporting(unittest.TestCase):
         self.assertEqual(error_count, 1)
 
     def test_report_exception_no_grpc(self):
-        with mock.patch.dict('os.environ',
-                {'GOOGLE_CLOUD_DISABLE_GRPC': 'true'}, clear=True):
+        with mock.patch.dict(
+            "os.environ", {"GOOGLE_CLOUD_DISABLE_GRPC": "true"}, clear=True
+        ):
             self.test_report_exception()
-
