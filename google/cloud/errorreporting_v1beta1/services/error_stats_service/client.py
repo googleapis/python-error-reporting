@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -438,7 +438,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import errorreporting_v1beta1
+                    from google.cloud import errorreporting_v1beta1
 
             def sample_list_group_stats():
                 # Create a client
@@ -570,7 +570,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import errorreporting_v1beta1
+                    from google.cloud import errorreporting_v1beta1
 
             def sample_list_events():
                 # Create a client
@@ -694,7 +694,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import errorreporting_v1beta1
+                    from google.cloud import errorreporting_v1beta1
 
             def sample_delete_events():
                 # Create a client
