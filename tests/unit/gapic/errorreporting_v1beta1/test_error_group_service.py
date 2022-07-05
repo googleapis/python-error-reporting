@@ -1396,7 +1396,6 @@ def test_error_group_service_transport_auth_adc(transport_class):
     [
         transports.ErrorGroupServiceGrpcTransport,
         transports.ErrorGroupServiceGrpcAsyncIOTransport,
-        transports.ErrorGroupServiceRestTransport,
     ],
 )
 def test_error_group_service_transport_auth_gdch_credentials(transport_class):
