@@ -3,7 +3,7 @@ Python Client for Error Reporting API
 
 |preview| |pypi| |versions|
 
-`Error Reporting API`_: 
+`Error Reporting API`_: counts, analyzes and aggregates the crashes in your running cloud services.  A centralized error management interface displays the results with sorting and filtering capabilities. A dedicated view shows the error details: time chart, occurrences, affected user count, first and last seen dates and a cleaned exception stack trace. Opt-in to receive email and mobile alerts on new errors.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
