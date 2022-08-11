@@ -16,6 +16,7 @@
 import synthtool as s
 from synthtool import gcp
 from synthtool.languages import python
+import os
 
 common = gcp.CommonTemplates()
 
