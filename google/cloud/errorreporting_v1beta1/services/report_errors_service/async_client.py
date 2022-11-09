@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -156,9 +166,9 @@ class ReportErrorsServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, ReportErrorsServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the report errors service client.
@@ -202,12 +212,14 @@ class ReportErrorsServiceAsyncClient:
 
     async def report_error_event(
         self,
-        request: Union[report_errors_service.ReportErrorEventRequest, dict] = None,
+        request: Optional[
+            Union[report_errors_service.ReportErrorEventRequest, dict]
+        ] = None,
         *,
-        project_name: str = None,
-        event: report_errors_service.ReportedErrorEvent = None,
+        project_name: Optional[str] = None,
+        event: Optional[report_errors_service.ReportedErrorEvent] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> report_errors_service.ReportErrorEventResponse:
         r"""Report an individual error event and record the event to a log.
@@ -258,7 +270,7 @@ class ReportErrorsServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.errorreporting_v1beta1.types.ReportErrorEventRequest, dict]):
+            request (Optional[Union[google.cloud.errorreporting_v1beta1.types.ReportErrorEventRequest, dict]]):
                 The request object. A request for reporting an
                 individual error event.
             project_name (:class:`str`):

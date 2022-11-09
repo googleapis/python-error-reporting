@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -58,7 +69,7 @@ class ErrorStatsServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[ErrorStatsServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -330,7 +341,7 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, ErrorStatsServiceTransport, None] = None,
+        transport: Optional[Union[str, ErrorStatsServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -428,12 +439,14 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
     def list_group_stats(
         self,
-        request: Union[error_stats_service.ListGroupStatsRequest, dict] = None,
+        request: Optional[
+            Union[error_stats_service.ListGroupStatsRequest, dict]
+        ] = None,
         *,
-        project_name: str = None,
-        time_range: error_stats_service.QueryTimeRange = None,
+        project_name: Optional[str] = None,
+        time_range: Optional[error_stats_service.QueryTimeRange] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListGroupStatsPager:
         r"""Lists the specified groups.
@@ -567,12 +580,12 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
     def list_events(
         self,
-        request: Union[error_stats_service.ListEventsRequest, dict] = None,
+        request: Optional[Union[error_stats_service.ListEventsRequest, dict]] = None,
         *,
-        project_name: str = None,
-        group_id: str = None,
+        project_name: Optional[str] = None,
+        group_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListEventsPager:
         r"""Lists the specified events.
@@ -699,11 +712,11 @@ class ErrorStatsServiceClient(metaclass=ErrorStatsServiceClientMeta):
 
     def delete_events(
         self,
-        request: Union[error_stats_service.DeleteEventsRequest, dict] = None,
+        request: Optional[Union[error_stats_service.DeleteEventsRequest, dict]] = None,
         *,
-        project_name: str = None,
+        project_name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> error_stats_service.DeleteEventsResponse:
         r"""Deletes all error events of a given project.

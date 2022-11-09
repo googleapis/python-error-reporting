@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -160,9 +170,9 @@ class ErrorGroupServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, ErrorGroupServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the error group service client.
@@ -206,11 +216,11 @@ class ErrorGroupServiceAsyncClient:
 
     async def get_group(
         self,
-        request: Union[error_group_service.GetGroupRequest, dict] = None,
+        request: Optional[Union[error_group_service.GetGroupRequest, dict]] = None,
         *,
-        group_name: str = None,
+        group_name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> common.ErrorGroup:
         r"""Get the specified group.
@@ -242,7 +252,7 @@ class ErrorGroupServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.errorreporting_v1beta1.types.GetGroupRequest, dict]):
+            request (Optional[Union[google.cloud.errorreporting_v1beta1.types.GetGroupRequest, dict]]):
                 The request object. A request to return an individual
                 group.
             group_name (:class:`str`):
@@ -314,11 +324,11 @@ class ErrorGroupServiceAsyncClient:
 
     async def update_group(
         self,
-        request: Union[error_group_service.UpdateGroupRequest, dict] = None,
+        request: Optional[Union[error_group_service.UpdateGroupRequest, dict]] = None,
         *,
-        group: common.ErrorGroup = None,
+        group: Optional[common.ErrorGroup] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> common.ErrorGroup:
         r"""Replace the data for the specified group.
@@ -350,7 +360,7 @@ class ErrorGroupServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.errorreporting_v1beta1.types.UpdateGroupRequest, dict]):
+            request (Optional[Union[google.cloud.errorreporting_v1beta1.types.UpdateGroupRequest, dict]]):
                 The request object. A request to replace the existing
                 data for the given group.
             group (:class:`google.cloud.errorreporting_v1beta1.types.ErrorGroup`):

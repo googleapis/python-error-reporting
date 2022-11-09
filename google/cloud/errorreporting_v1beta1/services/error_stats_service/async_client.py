@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -163,9 +173,9 @@ class ErrorStatsServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, ErrorStatsServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the error stats service client.
@@ -209,12 +219,14 @@ class ErrorStatsServiceAsyncClient:
 
     async def list_group_stats(
         self,
-        request: Union[error_stats_service.ListGroupStatsRequest, dict] = None,
+        request: Optional[
+            Union[error_stats_service.ListGroupStatsRequest, dict]
+        ] = None,
         *,
-        project_name: str = None,
-        time_range: error_stats_service.QueryTimeRange = None,
+        project_name: Optional[str] = None,
+        time_range: Optional[error_stats_service.QueryTimeRange] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListGroupStatsAsyncPager:
         r"""Lists the specified groups.
@@ -247,7 +259,7 @@ class ErrorStatsServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.errorreporting_v1beta1.types.ListGroupStatsRequest, dict]):
+            request (Optional[Union[google.cloud.errorreporting_v1beta1.types.ListGroupStatsRequest, dict]]):
                 The request object. Specifies a set of `ErrorGroupStats`
                 to return.
             project_name (:class:`str`):
@@ -348,12 +360,12 @@ class ErrorStatsServiceAsyncClient:
 
     async def list_events(
         self,
-        request: Union[error_stats_service.ListEventsRequest, dict] = None,
+        request: Optional[Union[error_stats_service.ListEventsRequest, dict]] = None,
         *,
-        project_name: str = None,
-        group_id: str = None,
+        project_name: Optional[str] = None,
+        group_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListEventsAsyncPager:
         r"""Lists the specified events.
@@ -387,7 +399,7 @@ class ErrorStatsServiceAsyncClient:
                     print(response)
 
         Args:
-            request (Union[google.cloud.errorreporting_v1beta1.types.ListEventsRequest, dict]):
+            request (Optional[Union[google.cloud.errorreporting_v1beta1.types.ListEventsRequest, dict]]):
                 The request object. Specifies a set of error events to
                 return.
             project_name (:class:`str`):
@@ -480,11 +492,11 @@ class ErrorStatsServiceAsyncClient:
 
     async def delete_events(
         self,
-        request: Union[error_stats_service.DeleteEventsRequest, dict] = None,
+        request: Optional[Union[error_stats_service.DeleteEventsRequest, dict]] = None,
         *,
-        project_name: str = None,
+        project_name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> error_stats_service.DeleteEventsResponse:
         r"""Deletes all error events of a given project.
@@ -516,7 +528,7 @@ class ErrorStatsServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.errorreporting_v1beta1.types.DeleteEventsRequest, dict]):
+            request (Optional[Union[google.cloud.errorreporting_v1beta1.types.DeleteEventsRequest, dict]]):
                 The request object. Deletes all events in the project.
             project_name (:class:`str`):
                 Required. The resource name of the Google Cloud Platform
