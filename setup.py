@@ -27,7 +27,7 @@ description = "Google Cloud Error Reporting API client library"
 
 version = {}
 with open(
-    os.path.join(package_root, "google/cloud/errorreporting/gapic_version.py")
+    os.path.join(package_root, "google/cloud/error_reporting/gapic_version.py")
 ) as fp:
     exec(fp.read(), version)
 version = version["__version__"]
