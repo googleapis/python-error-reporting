@@ -15,9 +15,9 @@
 """Client library for Error Reporting"""
 
 
-from pkg_resources import get_distribution
+from google.cloud.error_reporting import gapic_version as package_version
 
-__version__ = get_distribution("google-cloud-error-reporting").version
+__version__ = package_version.__version__
 
 from google.cloud.error_reporting.client import Client
 from google.cloud.error_reporting.client import HTTPContext
