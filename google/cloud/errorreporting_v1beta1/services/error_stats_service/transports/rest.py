@@ -41,7 +41,10 @@ except AttributeError:  # pragma: NO COVER
 
 from google.cloud.errorreporting_v1beta1.types import error_stats_service
 
-from .base import ErrorStatsServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import (
+    ErrorStatsServiceTransport,
+    DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO,
+)
 
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
@@ -95,7 +98,12 @@ class ErrorStatsServiceRestInterceptor:
 
 
     """
-    def pre_delete_events(self, request: error_stats_service.DeleteEventsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[error_stats_service.DeleteEventsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_delete_events(
+        self,
+        request: error_stats_service.DeleteEventsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[error_stats_service.DeleteEventsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_events
 
         Override in a subclass to manipulate the request or metadata
@@ -103,7 +111,9 @@ class ErrorStatsServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_delete_events(self, response: error_stats_service.DeleteEventsResponse) -> error_stats_service.DeleteEventsResponse:
+    def post_delete_events(
+        self, response: error_stats_service.DeleteEventsResponse
+    ) -> error_stats_service.DeleteEventsResponse:
         """Post-rpc interceptor for delete_events
 
         Override in a subclass to manipulate the response
@@ -111,7 +121,12 @@ class ErrorStatsServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_events(self, request: error_stats_service.ListEventsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[error_stats_service.ListEventsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_events(
+        self,
+        request: error_stats_service.ListEventsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[error_stats_service.ListEventsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_events
 
         Override in a subclass to manipulate the request or metadata
@@ -119,7 +134,9 @@ class ErrorStatsServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_events(self, response: error_stats_service.ListEventsResponse) -> error_stats_service.ListEventsResponse:
+    def post_list_events(
+        self, response: error_stats_service.ListEventsResponse
+    ) -> error_stats_service.ListEventsResponse:
         """Post-rpc interceptor for list_events
 
         Override in a subclass to manipulate the response
@@ -127,7 +144,12 @@ class ErrorStatsServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_group_stats(self, request: error_stats_service.ListGroupStatsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[error_stats_service.ListGroupStatsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_group_stats(
+        self,
+        request: error_stats_service.ListGroupStatsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[error_stats_service.ListGroupStatsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_group_stats
 
         Override in a subclass to manipulate the request or metadata
@@ -135,7 +157,9 @@ class ErrorStatsServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_group_stats(self, response: error_stats_service.ListGroupStatsResponse) -> error_stats_service.ListGroupStatsResponse:
+    def post_list_group_stats(
+        self, response: error_stats_service.ListGroupStatsResponse
+    ) -> error_stats_service.ListGroupStatsResponse:
         """Post-rpc interceptor for list_group_stats
 
         Override in a subclass to manipulate the response
@@ -166,20 +190,21 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'clouderrorreporting.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[ErrorStatsServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "clouderrorreporting.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[ErrorStatsServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -218,7 +243,9 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -229,10 +256,11 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or ErrorStatsServiceRestInterceptor()
@@ -242,19 +270,24 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
         def __hash__(self):
             return hash("DeleteEvents")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: error_stats_service.DeleteEventsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> error_stats_service.DeleteEventsResponse:
+        def __call__(
+            self,
+            request: error_stats_service.DeleteEventsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> error_stats_service.DeleteEventsResponse:
             r"""Call the delete events method over HTTP.
 
             Args:
@@ -273,37 +306,40 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v1beta1/{project_name=projects/*}/events',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v1beta1/{project_name=projects/*}/events",
+                },
             ]
             request, metadata = self._interceptor.pre_delete_events(request, metadata)
             pb_request = error_stats_service.DeleteEventsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -322,19 +358,26 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
         def __hash__(self):
             return hash("ListEvents")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-            "groupId" : "",        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {
+            "groupId": "",
+        }
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: error_stats_service.ListEventsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> error_stats_service.ListEventsResponse:
+        def __call__(
+            self,
+            request: error_stats_service.ListEventsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> error_stats_service.ListEventsResponse:
             r"""Call the list events method over HTTP.
 
             Args:
@@ -355,37 +398,40 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1beta1/{project_name=projects/*}/events',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1beta1/{project_name=projects/*}/events",
+                },
             ]
             request, metadata = self._interceptor.pre_list_events(request, metadata)
             pb_request = error_stats_service.ListEventsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -404,19 +450,24 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
         def __hash__(self):
             return hash("ListGroupStats")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: error_stats_service.ListGroupStatsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> error_stats_service.ListGroupStatsResponse:
+        def __call__(
+            self,
+            request: error_stats_service.ListGroupStatsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> error_stats_service.ListGroupStatsResponse:
             r"""Call the list group stats method over HTTP.
 
             Args:
@@ -435,37 +486,42 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1beta1/{project_name=projects/*}/groupStats',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1beta1/{project_name=projects/*}/groupStats",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_group_stats(request, metadata)
+            request, metadata = self._interceptor.pre_list_group_stats(
+                request, metadata
+            )
             pb_request = error_stats_service.ListGroupStatsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -481,28 +537,36 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
             return resp
 
     @property
-    def delete_events(self) -> Callable[
-            [error_stats_service.DeleteEventsRequest],
-            error_stats_service.DeleteEventsResponse]:
+    def delete_events(
+        self,
+    ) -> Callable[
+        [error_stats_service.DeleteEventsRequest],
+        error_stats_service.DeleteEventsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteEvents(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteEvents(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_events(self) -> Callable[
-            [error_stats_service.ListEventsRequest],
-            error_stats_service.ListEventsResponse]:
+    def list_events(
+        self,
+    ) -> Callable[
+        [error_stats_service.ListEventsRequest], error_stats_service.ListEventsResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListEvents(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListEvents(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_group_stats(self) -> Callable[
-            [error_stats_service.ListGroupStatsRequest],
-            error_stats_service.ListGroupStatsResponse]:
+    def list_group_stats(
+        self,
+    ) -> Callable[
+        [error_stats_service.ListGroupStatsRequest],
+        error_stats_service.ListGroupStatsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListGroupStats(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListGroupStats(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -512,6 +576,4 @@ class ErrorStatsServiceRestTransport(ErrorStatsServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'ErrorStatsServiceRestTransport',
-)
+__all__ = ("ErrorStatsServiceRestTransport",)

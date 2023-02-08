@@ -41,7 +41,10 @@ except AttributeError:  # pragma: NO COVER
 
 from google.cloud.errorreporting_v1beta1.types import report_errors_service
 
-from .base import ReportErrorsServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import (
+    ReportErrorsServiceTransport,
+    DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO,
+)
 
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
@@ -79,7 +82,14 @@ class ReportErrorsServiceRestInterceptor:
 
 
     """
-    def pre_report_error_event(self, request: report_errors_service.ReportErrorEventRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[report_errors_service.ReportErrorEventRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_report_error_event(
+        self,
+        request: report_errors_service.ReportErrorEventRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        report_errors_service.ReportErrorEventRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for report_error_event
 
         Override in a subclass to manipulate the request or metadata
@@ -87,7 +97,9 @@ class ReportErrorsServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_report_error_event(self, response: report_errors_service.ReportErrorEventResponse) -> report_errors_service.ReportErrorEventResponse:
+    def post_report_error_event(
+        self, response: report_errors_service.ReportErrorEventResponse
+    ) -> report_errors_service.ReportErrorEventResponse:
         """Post-rpc interceptor for report_error_event
 
         Override in a subclass to manipulate the response
@@ -117,20 +129,21 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'clouderrorreporting.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[ReportErrorsServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "clouderrorreporting.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[ReportErrorsServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -169,7 +182,9 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -180,10 +195,11 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or ReportErrorsServiceRestInterceptor()
@@ -193,19 +209,24 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
         def __hash__(self):
             return hash("ReportErrorEvent")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: report_errors_service.ReportErrorEventRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> report_errors_service.ReportErrorEventResponse:
+        def __call__(
+            self,
+            request: report_errors_service.ReportErrorEventRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> report_errors_service.ReportErrorEventResponse:
             r"""Call the report error event method over HTTP.
 
             Args:
@@ -227,46 +248,51 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1beta1/{project_name=projects/*}/events:report',
-                'body': 'event',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta1/{project_name=projects/*}/events:report",
+                    "body": "event",
+                },
             ]
-            request, metadata = self._interceptor.pre_report_error_event(request, metadata)
+            request, metadata = self._interceptor.pre_report_error_event(
+                request, metadata
+            )
             pb_request = report_errors_service.ReportErrorEventRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -282,12 +308,15 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
             return resp
 
     @property
-    def report_error_event(self) -> Callable[
-            [report_errors_service.ReportErrorEventRequest],
-            report_errors_service.ReportErrorEventResponse]:
+    def report_error_event(
+        self,
+    ) -> Callable[
+        [report_errors_service.ReportErrorEventRequest],
+        report_errors_service.ReportErrorEventResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ReportErrorEvent(self._session, self._host, self._interceptor) # type: ignore
+        return self._ReportErrorEvent(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -297,6 +326,4 @@ class ReportErrorsServiceRestTransport(ReportErrorsServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'ReportErrorsServiceRestTransport',
-)
+__all__ = ("ReportErrorsServiceRestTransport",)
