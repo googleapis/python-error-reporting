@@ -47,7 +47,7 @@ def test_namespace_package_compat(tmp_path):
         "google.otherpkg",
         "google.cloud.otherpkg",
         "google.cloud.error_reporting",
-        "google.cloud.errorreporting_v1beta1"
+        "google.cloud.errorreporting_v1beta1",
     ]:
         cmd = [sys.executable, "-c", f"import {pkg}"]
         subprocess.check_output(cmd, env=env)
