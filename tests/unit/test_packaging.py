@@ -19,7 +19,7 @@ import sys
 
 def test_namespace_package_compat(tmp_path):
     # The ``google`` namespace package should not be masked
-    # by the presence of ``google-cloud-logging``.
+    # by the presence of ``google-cloud-error-reporting``.
 
     google = tmp_path / "google"
     google.mkdir()
@@ -30,7 +30,7 @@ def test_namespace_package_compat(tmp_path):
     google_otherpkg.joinpath("__init__.py").write_text("")
 
     # The ``google.cloud`` namespace package should not be masked
-    # by the presence of ``google-cloud-logging``.
+    # by the presence of ``google-cloud-error-reporting``.
     google_cloud = tmp_path / "google" / "cloud"
     google_cloud.mkdir()
     google_cloud.joinpath("othermod.py").write_text("")
