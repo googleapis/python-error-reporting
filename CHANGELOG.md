@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+## [1.11.1](https://github.com/googleapis/python-error-reporting/compare/v1.11.0...v1.11.1) (2024-04-17)
+
+
+### Documentation
+
+* Add summary_overview template ([#496](https://github.com/googleapis/python-error-reporting/issues/496)) ([988def5](https://github.com/googleapis/python-error-reporting/commit/988def551df3f95577519450470a7cbf5f3b6b7d))
+
 ## [1.11.0](https://github.com/googleapis/python-error-reporting/compare/v1.10.0...v1.11.0) (2024-03-26)
 
 
