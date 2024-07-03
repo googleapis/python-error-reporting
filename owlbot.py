@@ -68,6 +68,22 @@ s.move(
     ],
 )
 
+# Test the latest runtime in the `prerelease_deps` session
+s.replace("noxfile.py",
+    """@nox.session\(python=SYSTEM_TEST_PYTHON_VERSIONS\)
+@nox.parametrize\(
+    "protobuf_implementation",
+    \[ "python", "upb", "cpp" \],
+\)
+def prerelease_deps\(session, protobuf_implementation\):""",
+    """@nox.session(python=UNIT_TEST_PYTHON_VERSIONS[-1])
+@nox.parametrize(
+    "protobuf_implementation",
+    ["python", "upb", "cpp"],
+)
+def prerelease_deps(session, protobuf_implementation):"""
+)
+
 python.py_samples(skip_readmes=True)
 
 # run format session for all directories which have a noxfile
