@@ -13,9 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import logging
+import json  # type: ignore
 
 from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
 from google.auth import credentials as ga_credentials  # type: ignore
 from google.api_core import exceptions as core_exceptions
 from google.api_core import retry as retries
@@ -42,6 +43,14 @@ try:
 except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object, None]  # type: ignore
 
+try:
+    from google.api_core import client_logging  # type: ignore
+
+    CLIENT_LOGGING_SUPPORTED = True  # pragma: NO COVER
+except ImportError:  # pragma: NO COVER
+    CLIENT_LOGGING_SUPPORTED = False
+
+_LOGGER = logging.getLogger(__name__)
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -98,8 +107,10 @@ class ErrorStatsServiceRestInterceptor:
     def pre_delete_events(
         self,
         request: error_stats_service.DeleteEventsRequest,
-        metadata: Sequence[Tuple[str, str]],
-    ) -> Tuple[error_stats_service.DeleteEventsRequest, Sequence[Tuple[str, str]]]:
+        metadata: Sequence[Tuple[str, Union[str, bytes]]],
+    ) -> Tuple[
+        error_stats_service.DeleteEventsRequest, Sequence[Tuple[str, Union[str, bytes]]]
+    ]:
         """Pre-rpc interceptor for delete_events
 
         Override in a subclass to manipulate the request or metadata
@@ -121,8 +132,10 @@ class ErrorStatsServiceRestInterceptor:
     def pre_list_events(
         self,
         request: error_stats_service.ListEventsRequest,
-        metadata: Sequence[Tuple[str, str]],
-    ) -> Tuple[error_stats_service.ListEventsRequest, Sequence[Tuple[str, str]]]:
+        metadata: Sequence[Tuple[str, Union[str, bytes]]],
+    ) -> Tuple[
+        error_stats_service.ListEventsRequest, Sequence[Tuple[str, Union[str, bytes]]]
+    ]:
         """Pre-rpc interceptor for list_events
 
         Override in a subclass to manipulate the request or metadata
@@ -144,8 +157,11 @@ class ErrorStatsServiceRestInterceptor:
     def pre_list_group_stats(
         self,
         request: error_stats_service.ListGroupStatsRequest,
-        metadata: Sequence[Tuple[str, str]],
-    ) -> Tuple[error_stats_service.ListGroupStatsRequest, Sequence[Tuple[str, str]]]:
+        metadata: Sequence[Tuple[str, Union[str, bytes]]],
+    ) -> Tuple[
+        error_stats_service.ListGroupStatsRequest,
+        Sequence[Tuple[str, Union[str, bytes]]],
+    ]:
         """Pre-rpc interceptor for list_group_stats
 
         Override in a subclass to manipulate the request or metadata
@@ -286,7 +302,7 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             *,
             retry: OptionalRetry = gapic_v1.method.DEFAULT,
             timeout: Optional[float] = None,
-            metadata: Sequence[Tuple[str, str]] = (),
+            metadata: Sequence[Tuple[str, Union[str, bytes]]] = (),
         ) -> error_stats_service.DeleteEventsResponse:
             r"""Call the delete events method over HTTP.
 
@@ -296,8 +312,10 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
                 retry (google.api_core.retry.Retry): Designation of what errors, if any,
                     should be retried.
                 timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                metadata (Sequence[Tuple[str, Union[str, bytes]]]): Key/value pairs which should be
+                    sent along with the request as metadata. Normally, each value must be of type `str`,
+                    but for metadata keys ending with the suffix `-bin`, the corresponding values must
+                    be of type `bytes`.
 
             Returns:
                 ~.error_stats_service.DeleteEventsResponse:
@@ -309,6 +327,7 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             http_options = (
                 _BaseErrorStatsServiceRestTransport._BaseDeleteEvents._get_http_options()
             )
+
             request, metadata = self._interceptor.pre_delete_events(request, metadata)
             transcoded_request = _BaseErrorStatsServiceRestTransport._BaseDeleteEvents._get_transcoded_request(
                 http_options, request
@@ -318,6 +337,33 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             query_params = _BaseErrorStatsServiceRestTransport._BaseDeleteEvents._get_query_params_json(
                 transcoded_request
             )
+
+            if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
+                logging.DEBUG
+            ):  # pragma: NO COVER
+                request_url = "{host}{uri}".format(
+                    host=self._host, uri=transcoded_request["uri"]
+                )
+                method = transcoded_request["method"]
+                try:
+                    request_payload = type(request).to_json(request)
+                except:
+                    request_payload = None
+                http_request = {
+                    "payload": request_payload,
+                    "requestMethod": method,
+                    "requestUrl": request_url,
+                    "headers": dict(metadata),
+                }
+                _LOGGER.debug(
+                    f"Sending request for google.devtools.clouderrorreporting_v1beta1.ErrorStatsServiceClient.DeleteEvents",
+                    extra={
+                        "serviceName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+                        "rpcName": "DeleteEvents",
+                        "httpRequest": http_request,
+                        "metadata": http_request["headers"],
+                    },
+                )
 
             # Send the request
             response = ErrorStatsServiceRestTransport._DeleteEvents._get_response(
@@ -339,7 +385,31 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             pb_resp = error_stats_service.DeleteEventsResponse.pb(resp)
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
+
             resp = self._interceptor.post_delete_events(resp)
+            if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
+                logging.DEBUG
+            ):  # pragma: NO COVER
+                try:
+                    response_payload = error_stats_service.DeleteEventsResponse.to_json(
+                        response
+                    )
+                except:
+                    response_payload = None
+                http_response = {
+                    "payload": response_payload,
+                    "headers": dict(response.headers),
+                    "status": response.status_code,
+                }
+                _LOGGER.debug(
+                    "Received response for google.devtools.clouderrorreporting_v1beta1.ErrorStatsServiceClient.delete_events",
+                    extra={
+                        "serviceName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+                        "rpcName": "DeleteEvents",
+                        "metadata": http_response["headers"],
+                        "httpResponse": http_response,
+                    },
+                )
             return resp
 
     class _ListEvents(
@@ -376,7 +446,7 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             *,
             retry: OptionalRetry = gapic_v1.method.DEFAULT,
             timeout: Optional[float] = None,
-            metadata: Sequence[Tuple[str, str]] = (),
+            metadata: Sequence[Tuple[str, Union[str, bytes]]] = (),
         ) -> error_stats_service.ListEventsResponse:
             r"""Call the list events method over HTTP.
 
@@ -387,8 +457,10 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
                 retry (google.api_core.retry.Retry): Designation of what errors, if any,
                     should be retried.
                 timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                metadata (Sequence[Tuple[str, Union[str, bytes]]]): Key/value pairs which should be
+                    sent along with the request as metadata. Normally, each value must be of type `str`,
+                    but for metadata keys ending with the suffix `-bin`, the corresponding values must
+                    be of type `bytes`.
 
             Returns:
                 ~.error_stats_service.ListEventsResponse:
@@ -400,6 +472,7 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             http_options = (
                 _BaseErrorStatsServiceRestTransport._BaseListEvents._get_http_options()
             )
+
             request, metadata = self._interceptor.pre_list_events(request, metadata)
             transcoded_request = _BaseErrorStatsServiceRestTransport._BaseListEvents._get_transcoded_request(
                 http_options, request
@@ -409,6 +482,33 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             query_params = _BaseErrorStatsServiceRestTransport._BaseListEvents._get_query_params_json(
                 transcoded_request
             )
+
+            if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
+                logging.DEBUG
+            ):  # pragma: NO COVER
+                request_url = "{host}{uri}".format(
+                    host=self._host, uri=transcoded_request["uri"]
+                )
+                method = transcoded_request["method"]
+                try:
+                    request_payload = type(request).to_json(request)
+                except:
+                    request_payload = None
+                http_request = {
+                    "payload": request_payload,
+                    "requestMethod": method,
+                    "requestUrl": request_url,
+                    "headers": dict(metadata),
+                }
+                _LOGGER.debug(
+                    f"Sending request for google.devtools.clouderrorreporting_v1beta1.ErrorStatsServiceClient.ListEvents",
+                    extra={
+                        "serviceName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+                        "rpcName": "ListEvents",
+                        "httpRequest": http_request,
+                        "metadata": http_request["headers"],
+                    },
+                )
 
             # Send the request
             response = ErrorStatsServiceRestTransport._ListEvents._get_response(
@@ -430,7 +530,31 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             pb_resp = error_stats_service.ListEventsResponse.pb(resp)
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
+
             resp = self._interceptor.post_list_events(resp)
+            if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
+                logging.DEBUG
+            ):  # pragma: NO COVER
+                try:
+                    response_payload = error_stats_service.ListEventsResponse.to_json(
+                        response
+                    )
+                except:
+                    response_payload = None
+                http_response = {
+                    "payload": response_payload,
+                    "headers": dict(response.headers),
+                    "status": response.status_code,
+                }
+                _LOGGER.debug(
+                    "Received response for google.devtools.clouderrorreporting_v1beta1.ErrorStatsServiceClient.list_events",
+                    extra={
+                        "serviceName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+                        "rpcName": "ListEvents",
+                        "metadata": http_response["headers"],
+                        "httpResponse": http_response,
+                    },
+                )
             return resp
 
     class _ListGroupStats(
@@ -468,7 +592,7 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             *,
             retry: OptionalRetry = gapic_v1.method.DEFAULT,
             timeout: Optional[float] = None,
-            metadata: Sequence[Tuple[str, str]] = (),
+            metadata: Sequence[Tuple[str, Union[str, bytes]]] = (),
         ) -> error_stats_service.ListGroupStatsResponse:
             r"""Call the list group stats method over HTTP.
 
@@ -478,8 +602,10 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
                 retry (google.api_core.retry.Retry): Designation of what errors, if any,
                     should be retried.
                 timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                metadata (Sequence[Tuple[str, Union[str, bytes]]]): Key/value pairs which should be
+                    sent along with the request as metadata. Normally, each value must be of type `str`,
+                    but for metadata keys ending with the suffix `-bin`, the corresponding values must
+                    be of type `bytes`.
 
             Returns:
                 ~.error_stats_service.ListGroupStatsResponse:
@@ -491,6 +617,7 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             http_options = (
                 _BaseErrorStatsServiceRestTransport._BaseListGroupStats._get_http_options()
             )
+
             request, metadata = self._interceptor.pre_list_group_stats(
                 request, metadata
             )
@@ -502,6 +629,33 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             query_params = _BaseErrorStatsServiceRestTransport._BaseListGroupStats._get_query_params_json(
                 transcoded_request
             )
+
+            if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
+                logging.DEBUG
+            ):  # pragma: NO COVER
+                request_url = "{host}{uri}".format(
+                    host=self._host, uri=transcoded_request["uri"]
+                )
+                method = transcoded_request["method"]
+                try:
+                    request_payload = type(request).to_json(request)
+                except:
+                    request_payload = None
+                http_request = {
+                    "payload": request_payload,
+                    "requestMethod": method,
+                    "requestUrl": request_url,
+                    "headers": dict(metadata),
+                }
+                _LOGGER.debug(
+                    f"Sending request for google.devtools.clouderrorreporting_v1beta1.ErrorStatsServiceClient.ListGroupStats",
+                    extra={
+                        "serviceName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+                        "rpcName": "ListGroupStats",
+                        "httpRequest": http_request,
+                        "metadata": http_request["headers"],
+                    },
+                )
 
             # Send the request
             response = ErrorStatsServiceRestTransport._ListGroupStats._get_response(
@@ -523,7 +677,31 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             pb_resp = error_stats_service.ListGroupStatsResponse.pb(resp)
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
+
             resp = self._interceptor.post_list_group_stats(resp)
+            if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
+                logging.DEBUG
+            ):  # pragma: NO COVER
+                try:
+                    response_payload = (
+                        error_stats_service.ListGroupStatsResponse.to_json(response)
+                    )
+                except:
+                    response_payload = None
+                http_response = {
+                    "payload": response_payload,
+                    "headers": dict(response.headers),
+                    "status": response.status_code,
+                }
+                _LOGGER.debug(
+                    "Received response for google.devtools.clouderrorreporting_v1beta1.ErrorStatsServiceClient.list_group_stats",
+                    extra={
+                        "serviceName": "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+                        "rpcName": "ListGroupStats",
+                        "metadata": http_response["headers"],
+                        "httpResponse": http_response,
+                    },
+                )
             return resp
 
     @property

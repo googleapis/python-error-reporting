@@ -2619,6 +2619,7 @@ def test_list_group_stats_rest_required_fields(
 
             response_value._content = json_return_value.encode("UTF-8")
             req.return_value = response_value
+            req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
 
             response = client.list_group_stats(request)
 
@@ -2682,6 +2683,7 @@ def test_list_group_stats_rest_flattened():
         json_return_value = json_format.MessageToJson(return_value)
         response_value._content = json_return_value.encode("UTF-8")
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
 
         client.list_group_stats(**mock_args)
 
@@ -2895,6 +2897,7 @@ def test_list_events_rest_required_fields(
 
             response_value._content = json_return_value.encode("UTF-8")
             req.return_value = response_value
+            req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
 
             response = client.list_events(request)
 
@@ -2963,6 +2966,7 @@ def test_list_events_rest_flattened():
         json_return_value = json_format.MessageToJson(return_value)
         response_value._content = json_return_value.encode("UTF-8")
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
 
         client.list_events(**mock_args)
 
@@ -3157,6 +3161,7 @@ def test_delete_events_rest_required_fields(
 
             response_value._content = json_return_value.encode("UTF-8")
             req.return_value = response_value
+            req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
 
             response = client.delete_events(request)
 
@@ -3202,6 +3207,7 @@ def test_delete_events_rest_flattened():
         json_return_value = json_format.MessageToJson(return_value)
         response_value._content = json_return_value.encode("UTF-8")
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
 
         client.delete_events(**mock_args)
 
@@ -3520,6 +3526,7 @@ def test_list_group_stats_rest_bad_request(
         response_value.status_code = 400
         response_value.request = mock.Mock()
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         client.list_group_stats(request)
 
 
@@ -3555,6 +3562,7 @@ def test_list_group_stats_rest_call_success(request_type):
         json_return_value = json_format.MessageToJson(return_value)
         response_value.content = json_return_value.encode("UTF-8")
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         response = client.list_group_stats(request)
 
     # Establish that the response is the type that we expect.
@@ -3595,6 +3603,7 @@ def test_list_group_stats_rest_interceptors(null_interceptor):
 
         req.return_value = mock.Mock()
         req.return_value.status_code = 200
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         return_value = error_stats_service.ListGroupStatsResponse.to_json(
             error_stats_service.ListGroupStatsResponse()
         )
@@ -3641,6 +3650,7 @@ def test_list_events_rest_bad_request(
         response_value.status_code = 400
         response_value.request = mock.Mock()
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         client.list_events(request)
 
 
@@ -3676,6 +3686,7 @@ def test_list_events_rest_call_success(request_type):
         json_return_value = json_format.MessageToJson(return_value)
         response_value.content = json_return_value.encode("UTF-8")
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         response = client.list_events(request)
 
     # Establish that the response is the type that we expect.
@@ -3716,6 +3727,7 @@ def test_list_events_rest_interceptors(null_interceptor):
 
         req.return_value = mock.Mock()
         req.return_value.status_code = 200
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         return_value = error_stats_service.ListEventsResponse.to_json(
             error_stats_service.ListEventsResponse()
         )
@@ -3762,6 +3774,7 @@ def test_delete_events_rest_bad_request(
         response_value.status_code = 400
         response_value.request = mock.Mock()
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         client.delete_events(request)
 
 
@@ -3795,6 +3808,7 @@ def test_delete_events_rest_call_success(request_type):
         json_return_value = json_format.MessageToJson(return_value)
         response_value.content = json_return_value.encode("UTF-8")
         req.return_value = response_value
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         response = client.delete_events(request)
 
     # Establish that the response is the type that we expect.
@@ -3834,6 +3848,7 @@ def test_delete_events_rest_interceptors(null_interceptor):
 
         req.return_value = mock.Mock()
         req.return_value.status_code = 200
+        req.return_value.headers = {"header-1": "value-1", "header-2": "value-2"}
         return_value = error_stats_service.DeleteEventsResponse.to_json(
             error_stats_service.DeleteEventsResponse()
         )
