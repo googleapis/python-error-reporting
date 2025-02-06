@@ -123,11 +123,37 @@ class ErrorStatsServiceRestInterceptor:
     ) -> error_stats_service.DeleteEventsResponse:
         """Post-rpc interceptor for delete_events
 
-        Override in a subclass to manipulate the response
+        DEPRECATED. Please use the `post_delete_events_with_metadata`
+        interceptor instead.
+
+        Override in a subclass to read or manipulate the response
         after it is returned by the ErrorStatsService server but before
-        it is returned to user code.
+        it is returned to user code. This `post_delete_events` interceptor runs
+        before the `post_delete_events_with_metadata` interceptor.
         """
         return response
+
+    def post_delete_events_with_metadata(
+        self,
+        response: error_stats_service.DeleteEventsResponse,
+        metadata: Sequence[Tuple[str, Union[str, bytes]]],
+    ) -> Tuple[
+        error_stats_service.DeleteEventsResponse,
+        Sequence[Tuple[str, Union[str, bytes]]],
+    ]:
+        """Post-rpc interceptor for delete_events
+
+        Override in a subclass to read or manipulate the response or metadata after it
+        is returned by the ErrorStatsService server but before it is returned to user code.
+
+        We recommend only using this `post_delete_events_with_metadata`
+        interceptor in new development instead of the `post_delete_events` interceptor.
+        When both interceptors are used, this `post_delete_events_with_metadata` interceptor runs after the
+        `post_delete_events` interceptor. The (possibly modified) response returned by
+        `post_delete_events` will be passed to
+        `post_delete_events_with_metadata`.
+        """
+        return response, metadata
 
     def pre_list_events(
         self,
@@ -148,11 +174,36 @@ class ErrorStatsServiceRestInterceptor:
     ) -> error_stats_service.ListEventsResponse:
         """Post-rpc interceptor for list_events
 
-        Override in a subclass to manipulate the response
+        DEPRECATED. Please use the `post_list_events_with_metadata`
+        interceptor instead.
+
+        Override in a subclass to read or manipulate the response
         after it is returned by the ErrorStatsService server but before
-        it is returned to user code.
+        it is returned to user code. This `post_list_events` interceptor runs
+        before the `post_list_events_with_metadata` interceptor.
         """
         return response
+
+    def post_list_events_with_metadata(
+        self,
+        response: error_stats_service.ListEventsResponse,
+        metadata: Sequence[Tuple[str, Union[str, bytes]]],
+    ) -> Tuple[
+        error_stats_service.ListEventsResponse, Sequence[Tuple[str, Union[str, bytes]]]
+    ]:
+        """Post-rpc interceptor for list_events
+
+        Override in a subclass to read or manipulate the response or metadata after it
+        is returned by the ErrorStatsService server but before it is returned to user code.
+
+        We recommend only using this `post_list_events_with_metadata`
+        interceptor in new development instead of the `post_list_events` interceptor.
+        When both interceptors are used, this `post_list_events_with_metadata` interceptor runs after the
+        `post_list_events` interceptor. The (possibly modified) response returned by
+        `post_list_events` will be passed to
+        `post_list_events_with_metadata`.
+        """
+        return response, metadata
 
     def pre_list_group_stats(
         self,
@@ -174,11 +225,37 @@ class ErrorStatsServiceRestInterceptor:
     ) -> error_stats_service.ListGroupStatsResponse:
         """Post-rpc interceptor for list_group_stats
 
-        Override in a subclass to manipulate the response
+        DEPRECATED. Please use the `post_list_group_stats_with_metadata`
+        interceptor instead.
+
+        Override in a subclass to read or manipulate the response
         after it is returned by the ErrorStatsService server but before
-        it is returned to user code.
+        it is returned to user code. This `post_list_group_stats` interceptor runs
+        before the `post_list_group_stats_with_metadata` interceptor.
         """
         return response
+
+    def post_list_group_stats_with_metadata(
+        self,
+        response: error_stats_service.ListGroupStatsResponse,
+        metadata: Sequence[Tuple[str, Union[str, bytes]]],
+    ) -> Tuple[
+        error_stats_service.ListGroupStatsResponse,
+        Sequence[Tuple[str, Union[str, bytes]]],
+    ]:
+        """Post-rpc interceptor for list_group_stats
+
+        Override in a subclass to read or manipulate the response or metadata after it
+        is returned by the ErrorStatsService server but before it is returned to user code.
+
+        We recommend only using this `post_list_group_stats_with_metadata`
+        interceptor in new development instead of the `post_list_group_stats` interceptor.
+        When both interceptors are used, this `post_list_group_stats_with_metadata` interceptor runs after the
+        `post_list_group_stats` interceptor. The (possibly modified) response returned by
+        `post_list_group_stats` will be passed to
+        `post_list_group_stats_with_metadata`.
+        """
+        return response, metadata
 
 
 @dataclasses.dataclass
@@ -387,6 +464,10 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
 
             resp = self._interceptor.post_delete_events(resp)
+            response_metadata = [(k, str(v)) for k, v in response.headers.items()]
+            resp, _ = self._interceptor.post_delete_events_with_metadata(
+                resp, response_metadata
+            )
             if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
                 logging.DEBUG
             ):  # pragma: NO COVER
@@ -532,6 +613,10 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
 
             resp = self._interceptor.post_list_events(resp)
+            response_metadata = [(k, str(v)) for k, v in response.headers.items()]
+            resp, _ = self._interceptor.post_list_events_with_metadata(
+                resp, response_metadata
+            )
             if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
                 logging.DEBUG
             ):  # pragma: NO COVER
@@ -679,6 +764,10 @@ class ErrorStatsServiceRestTransport(_BaseErrorStatsServiceRestTransport):
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
 
             resp = self._interceptor.post_list_group_stats(resp)
+            response_metadata = [(k, str(v)) for k, v in response.headers.items()]
+            resp, _ = self._interceptor.post_list_group_stats_with_metadata(
+                resp, response_metadata
+            )
             if CLIENT_LOGGING_SUPPORTED and _LOGGER.isEnabledFor(
                 logging.DEBUG
             ):  # pragma: NO COVER
