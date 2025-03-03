@@ -4,6 +4,19 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+## [1.12.0](https://github.com/googleapis/python-error-reporting/compare/v1.11.1...v1.12.0) (2025-03-03)
+
+
+### Features
+
+* Add REST Interceptors which support reading metadata ([1d120c7](https://github.com/googleapis/python-error-reporting/commit/1d120c77c73b566796b32cab017a0d4cdfa28713))
+* Add support for opt-in debug logging ([1d120c7](https://github.com/googleapis/python-error-reporting/commit/1d120c77c73b566796b32cab017a0d4cdfa28713))
+
+
+### Bug Fixes
+
+* Fix typing issue with gRPC metadata when key ends in -bin ([1d120c7](https://github.com/googleapis/python-error-reporting/commit/1d120c77c73b566796b32cab017a0d4cdfa28713))
+
 ## [1.11.1](https://github.com/googleapis/python-error-reporting/compare/v1.11.0...v1.11.1) (2024-09-17)
 
 
