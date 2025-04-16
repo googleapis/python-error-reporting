@@ -4,6 +4,21 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+## [1.12.0](https://github.com/googleapis/python-error-reporting/compare/v1.11.1...v1.12.0) (2025-04-16)
+
+
+### Features
+
+* Add REST Interceptors which support reading metadata ([1d120c7](https://github.com/googleapis/python-error-reporting/commit/1d120c77c73b566796b32cab017a0d4cdfa28713))
+* Add support for opt-in debug logging ([1d120c7](https://github.com/googleapis/python-error-reporting/commit/1d120c77c73b566796b32cab017a0d4cdfa28713))
+
+
+### Bug Fixes
+
+* Allow Protobuf 6.x ([#557](https://github.com/googleapis/python-error-reporting/issues/557)) ([9f8faeb](https://github.com/googleapis/python-error-reporting/commit/9f8faeba223a0e1834c0750d21b5cafdee74d327))
+* Fix typing issue with gRPC metadata when key ends in -bin ([1d120c7](https://github.com/googleapis/python-error-reporting/commit/1d120c77c73b566796b32cab017a0d4cdfa28713))
+* Remove setup.cfg configuration for creating universal wheels ([#562](https://github.com/googleapis/python-error-reporting/issues/562)) ([0738c03](https://github.com/googleapis/python-error-reporting/commit/0738c03fa4321fd29c0915da2336bf77947367ae))
+
 ## [1.11.1](https://github.com/googleapis/python-error-reporting/compare/v1.11.0...v1.11.1) (2024-09-17)
 
 
