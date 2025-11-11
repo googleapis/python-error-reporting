@@ -72,15 +72,7 @@ SYSTEM_TEST_EXTRAS_BY_PYTHON: Dict[str, List[str]] = {}
 CURRENT_DIRECTORY = pathlib.Path(__file__).parent.absolute()
 
 nox.options.sessions = [
-    "unit",
     "system",
-    "cover",
-    "lint",
-    "lint_setup_py",
-    "blacken",
-    "docs",
-    "docfx",
-    "format",
 ]
 
 # Error if a python version is missing
