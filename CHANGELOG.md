@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+## [1.14.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-error-reporting-v1.13.0...google-cloud-error-reporting-v1.14.0) (2025-11-14)
+
+
+### Features
+
+* some feature ([78cf18372b12e8a3c438bb10de4a8f0e276b4553](https://github.com/googleapis/google-cloud-python/commit/78cf18372b12e8a3c438bb10de4a8f0e276b4553))
+
 ## [1.13.0](https://github.com/googleapis/python-error-reporting/compare/v1.12.0...v1.13.0) (2025-11-12)
 
 
