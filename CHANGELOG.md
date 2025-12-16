@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-error-reporting/#history
 
+## [1.14.0](https://github.com/googleapis/python-error-reporting/compare/v1.13.0...v1.14.0) (2025-12-16)
+
+
+### Features
+
+* support mTLS certificates when available (#717) ([7e99258b41ddef55b63c70c7e31afced4ab30103](https://github.com/googleapis/python-error-reporting/commit/7e99258b41ddef55b63c70c7e31afced4ab30103))
+
 ## [1.13.0](https://github.com/googleapis/python-error-reporting/compare/v1.12.0...v1.13.0) (2025-11-12)
 
 
