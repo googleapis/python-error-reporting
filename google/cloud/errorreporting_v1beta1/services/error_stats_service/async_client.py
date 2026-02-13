@@ -118,7 +118,10 @@ class ErrorStatsServiceAsyncClient:
         Returns:
             ErrorStatsServiceAsyncClient: The constructed client.
         """
-        return ErrorStatsServiceClient.from_service_account_info.__func__(ErrorStatsServiceAsyncClient, info, *args, **kwargs)  # type: ignore
+        sa_info_func = (
+            ErrorStatsServiceClient.from_service_account_info.__func__  # type: ignore
+        )
+        return sa_info_func(ErrorStatsServiceAsyncClient, info, *args, **kwargs)
 
     @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
@@ -134,7 +137,10 @@ class ErrorStatsServiceAsyncClient:
         Returns:
             ErrorStatsServiceAsyncClient: The constructed client.
         """
-        return ErrorStatsServiceClient.from_service_account_file.__func__(ErrorStatsServiceAsyncClient, filename, *args, **kwargs)  # type: ignore
+        sa_file_func = (
+            ErrorStatsServiceClient.from_service_account_file.__func__  # type: ignore
+        )
+        return sa_file_func(ErrorStatsServiceAsyncClient, filename, *args, **kwargs)
 
     from_service_account_json = from_service_account_file
 
