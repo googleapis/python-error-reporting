@@ -110,7 +110,10 @@ class ReportErrorsServiceAsyncClient:
         Returns:
             ReportErrorsServiceAsyncClient: The constructed client.
         """
-        return ReportErrorsServiceClient.from_service_account_info.__func__(ReportErrorsServiceAsyncClient, info, *args, **kwargs)  # type: ignore
+        sa_info_func = (
+            ReportErrorsServiceClient.from_service_account_info.__func__  # type: ignore
+        )
+        return sa_info_func(ReportErrorsServiceAsyncClient, info, *args, **kwargs)
 
     @classmethod
     def from_service_account_file(cls, filename: str, *args, **kwargs):
@@ -126,7 +129,10 @@ class ReportErrorsServiceAsyncClient:
         Returns:
             ReportErrorsServiceAsyncClient: The constructed client.
         """
-        return ReportErrorsServiceClient.from_service_account_file.__func__(ReportErrorsServiceAsyncClient, filename, *args, **kwargs)  # type: ignore
+        sa_file_func = (
+            ReportErrorsServiceClient.from_service_account_file.__func__  # type: ignore
+        )
+        return sa_file_func(ReportErrorsServiceAsyncClient, filename, *args, **kwargs)
 
     from_service_account_json = from_service_account_file
 
